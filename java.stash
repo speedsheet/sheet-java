@@ -1,0 +1,5507 @@
+# <#>Java<> SpeedSheet
+<b>Find what you need, faster.<>
+
+<*>Use <b>Search<> to Find Answers Fast (above)
+Answers Get Right To The Point
+Covers The <b>Core Java Language<><>
+
+
+<b>Follow us on Twitter:<>
+
+<card><l https://twitter.com/_speedsheet>@_speedsheet<><>
+
+
+<b>Feedback:<>
+
+<card>Type '<c><b>feedback:<><>' into the search and then ENTER.<>
+
+Tell us what you liked, didn't like, and suggested improvements. Feedback welcome.
+@
+@ feedback:, twitter
+
+
+
+# A Work In Progress
+
+This is in no way complete.
+It is missing tons of 'non-optional' entries.
+
+Still, it may be useful as is.
+Kick the tires and let us know what you thought!
+
+
+Find what you need, enter keywords in the search bar above.
+
+This is an interactive cheat sheet
+with hundreds of Java commands, samples, and explanations.
+It gives you what you need, then gets out of your way
+so you can focus on what is important.
+
+
+
+# Language Basics
+
+
+### Casting
+
+<cb>= (<v>Type2<>)<v>var1<>;<>
+
+Converts <c><v>var1<><> into <c><v>Type2<><>.
+The types must be compatible.
+@
+@ Convert Class, Type
+
+
+
+### Command Terminator
+
+<cb>;<>
+
+<cb><v>statement<>;<>
+
+
+
+### Code Block Terminators
+
+Code Block:
+
+<cb>{ <v>code...<> }<>
+
+All code blocks start with '<c>{<>' and end with '<c>}<>'
+
+
+
+### Comments
+
+<cb><#>// Single Line Comment<><>
+
+<cb><#>/* Multiline Comment */<><>
+@
+@ //, /* */
+
+
+
+### Doc Comment
+
+<cb><#>/**
+ * Doc Comment
+ */<><>
+
+Place on the line before the class or method.
+@
+@ /**, */
+
+
+
+### Index Base
+
+0 based.
+
+All indexes are 0 based.
+Except for JDBC which is 1 based. (Done for historic DB reasons. Causes confusion in the Java world.)
+
+
+
+### Key Words
+
+abstract
+assert
+boolean
+break
+byte
+case
+catch
+char
+class
+const
+continue
+default
+double
+do
+else
+enum
+extends
+false
+final
+finally
+float
+for
+goto
+if
+implements
+import
+instanceof
+int
+interface
+long
+native
+new
+null
+package
+private
+protected
+public
+return
+short
+static
+strictfp
+super
+switch
+synchronized
+this
+throw
+throws
+transient
+true
+try
+void
+volatile
+while
+@
+@ keywords, reserved words
+
+
+### Escape Characters
+
+Escape Character		\\
+					\\<v>x<>
+
+Backslash			\\\\
+Double Quote			\\"
+Null					\\0
+
+Backspace			\\b
+Tab					\\t
+Newline				\\n
+Vertical Tab			\\v
+Form Feed			\\f
+Carriage Return		\\r
+
+
+
+### Literals
+
+Null					<c>null<>
+
+Boolean				<c>true<>, <c>false<>
+
+Binary				<c>0b<v>10100001<><>						<#>Starts with '<c>0b<>'.<>
+Octal				<c>0<v>345<><>							<#>Starts with '<c>0<>'.<>
+Hex					<c>0x<v>FF92<><>							<#>Starts with '<c>0x<>'.<>
+
+Integer				<c><v>123<><>
+Long				<c><v>123<>l<>
+
+Double				<c><v>1.0<><>
+					<c><v>1.0<>d<>							<#>Ends with '<c>d<>' (optional).<>
+Float				<c><v>1.0<>f<>							<#>Ends with '<c>f<>'.<>
+
+Character			<c>'<v>a<>'<><>
+					<c>'<v>\\u0061<>'<><>						<#>'a', 4 Digit Hex Unicode Value (16 Bit)<>
+
+String				<c>"<v>Text<>"<>
+					<c>"<v>\\u0054\\u0065\\u0078\\u0074<>"<>		<#>"Text", 4 Digit Hex Unicode Values (16 Bit)<>
+
+
+### Identifier Names
+
+<c>[ $ | _ | a-z A-Z ] [ $ | _ | a-z A-Z 0-9 ]*<>
+
+The single lone underscore '_' is deprecated as of Java 8. This is reserved for future use.
+
+
+Examples:
+
+<cb><v>abc123<>
+<v>_abc_123<>
+<v>$abc123<>
+<v>ABC123<><>
+
+
+
+### Parameters - Passing
+
+Pass By Value
+
+Java passes by value, not by reference.
+Object references are passed by value (no object deep copy).
+@
+@ Pass By Value, Reference
+
+
+
+### Parameters - Passing Variable Number of Arguments
+
+<c>public void <v>method1<>(<v>Type<>... <v>variableArguments<>)<>		<#>'<c>...<>' indicates a varargs argument.<>
+
+Java allows passing in of multiple values into one variable.
+Passed in as an array of object values.
+
+See Also: varargs
+@
+@ varargs
+
+
+
+### Symbol Lookup
+
+<c>//  <v>A comment<><>
+<c>/*  <v>A multiline commend<>  */<>
+<c>/** <v>A doc comment<>        */<>
+
+<c>null<>					Null Object
+
+<c>true<>					True Boolean Value
+<c>false<>				False Boolean Value
+
+<c><v>123<><>					Integer
+<c><v>123<>l<>					Long
+
+<c>0b<v>1010<><>				Binary Integer
+<c>0<v>345<><>					Octal Integer
+<c>0x<v>FF92<><>				Hex Integer
+
+<c><v>1.0<><>					Double
+<c><v>1.0<>d<>					Double
+<c><v>1.0<>f<>					Float
+
+<c>'<v>a<>'<>					Character
+<c>'\\u<v>005A<>'<>				16 Bit Unicode Character
+
+<c>"<v>text<>"<>				String
+<c>"\\u<v>0054<>\\u<v>0065<>"<>			String Defined With Unicode Characters
+
+<c>@<v>Annotation<><>			Annotation
+
+<c><v>Type<>... <v>argument<><>		Varargs / Variable number of arguments in the method signature (the '...')
+
+<c><v>label<>:<>				Break Label
+
+<m>(fix below)<>
+->					Lambda Definition (Form <c><v>params<> -> <v>function<><>)
+::					Method reference.
+
+					this::<v>methodName<>
+					<v>class_name<>::<v>static_method_name<>
+@
+@ Colon, At,
+
+
+
+### Hello World
+
+<cb>public class HelloWorld {
+
+	public static void main(String[] args) {
+
+		System.out.println("Hello world!");
+	}
+}<>
+
+
+
+# Convention Guidelines
+@
+@ Naming
+
+
+
+#### Conventions - Class Names
+
+<cb>class <v>ClassName<> { ...<>
+
+
+Use title case (first letter in upper case, all other letters in lower case).
+No separators between words.
+
+Use nouns for class names.
+
+
+
+#### Conventions - Method Names
+
+<cb><i>Type<> <v>methodName<> () { ...<>
+
+
+Use camel case (first letter in upper case except very first letter which is lower case. all other letters lower case).
+No separators between words.
+
+
+
+#### Conventions - Package Names
+
+<cb>package <v>com<>.<v>companyname<>.<v>projectname<>.<v>componentname<>;<>
+
+
+Use all lower case.
+No separators between words.
+
+Top package name should be a top level domain name.
+Example: com, edu, gov, mil, net, org, etc.
+
+
+
+#### Conventions - Variable Names
+
+<cb><i>Type<> <v>variableName<> = ...<>
+
+
+Use camel case (first letter in upper case except very first letter which is lower case. all other letters lower case).
+No separators between words.
+
+
+
+#### Conventions - Variable Names - Constants
+
+<cb>static final <i>Type<> <v>CONSTANT_NAME<> = ...<>
+
+
+Use upper snake case (all upper case, words separated with underscores '_').
+
+
+
+#### Conventions - Names - Abbreviations
+
+The convention is to avoid using them.
+
+
+
+#### Conventions - Names - Acronyms
+
+2 Letters:
+
+<cb><v>NameWithTL<><>
+
+3 or More Letters:
+
+<cb><v>NameWithTla<><>
+
+
+Acronyms with 3 letters or more should be title case (first letter upper case, the remainder lower case).
+Acronyms with 2 lettersh should be upper case.
+
+
+Example:
+
+<card><c>HTML<> becomes <c>Html<><>
+
+<card><c>DA<> remains <c>DA<><>
+
+
+# Operators
+
+
+
+### Assignment Operator
+
+Assignment			<c>=<>
+
+Add To				<c>+=<>
+Subtract From			<c>-=<>
+Multiply By			<c>*=<>
+Divide By				<c>/=<>
+Mod / Remainder Of	<c>%=<>
+
+
+Bitwise AND With		<c>&=<>
+Bitwise XOR With		<c>^=<>
+Bitwise OR With		<c>|=<>
+
+Shift Bits Left			<c>\<\<=<>
+Shift Bits Right		<c>>>=<>
+Unsigned Right Shift	<c>>>>=<>
+@
+@
+@ Bit, Bitwise
+
+
+
+### Arithmetic Operators
+
+Add					<c>+<>
+Subtract				-<c><>
+Multiply				<c>*<>
+Divide				<c>/<>
+Remainder / Mod		<c>%<>
+
+
+
+### Unary Operators
+
+Unary Plus			<c>+<>
+Unary Negative		<c>-<>
+Increment			<c>++<>
+Decrement			<c>--<>
+
+Not 					<c>!<>								<#>Logical Complement Operator<>
+
+
+
+### Equality and Relational Operators
+
+Equal To					<c>==<>
+Not Equal To				<c>!=<>
+Greater Than				<c>><>
+Greater Than Or Equal To	<c>>=<>
+Less Than					<c>\<<>
+Less Than Or Equal To		<c>\<=<>
+
+
+Primitives - Compares useing their values (Value Equal Operator).
+Objects - Compares using their addresses (Object Identity Operator).
+@
+@ Greater, Less, Equals, value equal operator, object identity operator
+
+
+
+### Conditional Operators
+
+And					<c>&&<>
+Or					<c>||<>
+Not 					<c>!<>
+
+See Also: Inline If
+@
+@ And, Or
+
+
+
+### Type Comparison Operator
+
+Matches Type:
+
+<cb>instanceof<>
+
+<cb>= <v>variable1<> instanceof <v>Class1<><>
+
+Compares the type of the object to a class.
+Returns true if it is the same type or subtype.
+Returns false if object is null.				
+@
+@ instanceof, instance of, compare class, subclass, subtype
+
+
+
+### Bitwise and Bit Shift Operators
+
+Unary Bitwise Complement	<c>~<>
+Signed Left Shift			<c>\<\<<>
+Signed Right Shift			<c>>><>
+Unsigned Right Shift		<c>>>><>
+
+Bitwise AND				<c>&<>
+
+Bitwise XOR				<c>^<>			<#>Returns 1 if both bits are 1 or both are 0.<>
+									<#>Returns 0 if one is 1 and the other is 0.<>
+
+Bitwise OR				<c>|<>			<#>Returns 1 if eithe bit is 1.<>
+									<#>Returns 0 if both are 0.<>
+
+
+
+# Data Types
+@
+@ data-only, data-type-only, data-types-only
+
+
+
+## Standard Types
+
+
+
+### Boolean
+
+<cb>boolean <v>bool1<> = true | false;<>
+
+Values:
+
+<cb>true, false<>
+
+Size:
+
+<card>Virtual Machine Dependent<>
+@
+@ Create, Define, Instantiate, New, Primitive
+@ bool-only, boolean-only, booleans-only, bools-only
+
+
+
+### Boolean - Operations
+@
+@ Ops
+@ bool-only, boolean-only, booleans-only, bools-only
+
+
+
+#### Boolean - From String
+
+<cb>boolean <v>boolean1<> = Boolean.parseBoolean("<v>true<>");<>
+
+<c>"true"<> returns <c>true<> (ignores case).
+All other values returns <c>false<>.
+@
+@ Convert, Conversion, To, Parse, parseBoolean
+
+
+
+#### Boolean - To String
+
+<cb>String <v>string1<> = Boolean.toString(<v>boolean1<>);<>
+
+Returns "true" or "false".
+@
+@ Convert, Conversion, From
+
+
+
+### Byte
+
+<cb>byte <v>byte1<> = <v>1<>;					<#>// 1.<><>
+
+<cb>byte <v>byte1<> = (byte) <v>1<>;			<#>// 2.<><>
+
+1.  <s>-<>  Implicit cast from int.
+
+2.  <s>-<>  Cast from int to byte for clarity.
+
+
+Range:	-128 ... +127
+Size:	8 bit
+
+
+Note: There is no byte literal. The data type must be cast from int.
+@
+@ Create, Define, Instantiate, New, Primitive
+@ Byte-Only, Bytes-Only
+
+
+
+### Byte Operations
+@
+@ Ops
+@ Byte-Only, Bytes-Only
+
+
+
+#### Byte - From String
+
+<cb>= Byte.parseByte("<v>123<>");<>
+
+
+Returns: <c>byte<>
+@
+@ Convert, Conversion, To, Parse, ParseByte
+
+
+
+#### Byte - To Unsigned Int
+
+<cb>= Byte.toUnsignedInt(<v>byte1<>);<>
+
+
+Converts a byte into an unsigned (positive) integer.
+
+byte -127		=> int 128
+byte -1		=> int 255
+@
+@ Convert, Conversion, From
+
+
+
+#### Byte - To String
+
+<cb>= Byte.toString(<v>byte1<>);<>
+
+
+Example:
+
+<cb>byte <v>byte1<> = 123;
+
+<#>// Prints "123":<>
+System.out.println(Byte.toString(<v>byte1<>));<>
+@
+@ Convert, Conversion, From
+
+
+
+#### Byte - To Hex
+
+<cb>= String.format("%x", <v>byte1<>);<>
+
+2 Digit Format:
+
+<cb>= String.format("%02x", <v>byte1<>);<>
+
+
+Returns: <c>String<>
+@
+@ Convert, Conversion, From
+
+
+
+#### Byte Array - From String
+
+<cb>= <v>string1<>.getBytes();<>
+
+
+Returns: <c>byte[]<>
+@
+@ Convert, Conversion, To, Bytes
+
+
+
+#### Byte Array - To String
+
+<cb>= new String(<v>bytes1<>, StandardCharsets.<v>encoding<>)<>
+
+Imports:
+
+<cb>import java.nio.charset.StandardCharsets;<>
+
+
+Example:
+
+<cb>String <v>string1<> = new String(<v>bytes1<>, StandardCharsets.UTF_8);<>
+@
+@ Convert, Conversion, From, Bytes
+
+
+
+### Char
+
+<c>char <v>char1<> = '<v>a<>';<>
+<c>char <v>char2<> = <v>55<>;<>								<#>'a'<>
+<c>char <v>char3<> = 0x<v>0061<>;<>							<#>'a'<>
+<c>char <v>char4<> = '<v>\\u0061<>';<>							<#>'a'<>
+
+Range				0 ... 65,535
+Size					16 Bit Unicode (Unsigned Integer)
+@
+@ Create, Define, Instantiate, New, Primitive
+@ char-only, chars-only, character-only, characters-only
+
+
+
+### Char Operations
+@
+@ Ops
+@ char-only, chars-only, character-only, characters-only
+
+
+
+#### Char - Join
+
+<cb>= new StringBuilder()
+		.append(<v>char1<>)
+		.append(<v>char2<>)
+		.toString();<>
+@
+@ Concatenate, Add, Combine
+
+
+
+#### Char - From String
+
+<cb>char <v>char1<> = <v>string1<>.charAt(<v>index<>);<>
+@
+@ Convert, Conversion, To, ASCII
+
+
+
+#### Char - To String
+
+<cb>String <v>string1<> = Character.toString(<v>char1<>);<>
+@
+@ Convert, Conversion, From, ASCII
+
+
+
+#### Char Array - From Int
+
+<c>char[] <v>chars1<> = Character.toChars(<v>int1<>);<>
+@
+@ Convert, Conversion, To, Integer, chars, characters
+
+
+
+#### Char Array - From String
+
+<c>char[] <v>chars1<> = <v>string1<>.toCharArray();<>
+@
+@ Convert, Conversion, To, chars, characters
+
+
+
+#### Char Array - To String
+
+<c>String <v>string1<> = new String(<v>chars1<>);<>
+@
+@ Convert, Conversion, From, chars, characters
+
+
+
+### Double
+
+<c>double <v>double1<> = <v>45.7<>d;<>
+<c>double <v>double2<> = <v>1.0<>;<>
+
+Range				4.9406564584124654 x 10^-324 ... 1.7976931348623157 x 10^308
+Size					64 Bit (8 bytes)
+Standard				IEEE 754 Floating Point
+@
+@ Create, Define, Instantiate, New, Primitive, Floating Point
+@ double-only, doubles-only
+
+
+
+### Double Operations
+@
+@ Ops
+@ double-only, doubles-only
+
+
+
+#### Double - Equals
+
+Method 1 (not recommended):
+
+
+	<c>= Double.valueOf(<v>double1<>).equals(<v>double2<>);<>
+
+	Convert to Double class and use .equals():
+	Not recommended due to double's imprecision.
+
+Method 2 (preferred):
+
+	<c>= Math.abs(<v>value1<> - <v>value1<>) \< <v>epsilon<><>
+
+	<c><v>epsilon<><> = a very small number, say 0.0000001.
+
+
+
+#### Double - From String
+
+<c>double <v>double1<> = Double.parseDouble("<v>45.7<>");<>
+@
+@ Convert, Conversion, To
+
+
+
+#### Double - To String
+
+<c>String <v>string1<> = Double.toString(<v>double1<>);<>
+@
+@ Convert, Conversion, From
+
+
+
+### Float
+
+<c>float <v>float1<> = <v>1.0<>f;<>
+
+Range				1.40239846 x 10^-45 ... 3.40282347 x 10^38
+Size					32 Bit (4 bytes)
+Standard				IEEE 754 Floating Point
+@
+@ Create, Define, Instantiate, New, Primitive, Floating Point
+@ float-only, floats-only
+
+
+
+### Float Operations
+@
+@ Ops
+@ float-only, floats-only
+
+
+
+#### Float - Equals
+
+Method 1 (not recommended):
+
+	<c>= Float.valueOf(<v>float1<>).equals(<v>float2<>);<>
+
+	Convert to Float class and use .equals():
+	Not recommended due to float's imprecision.
+
+Method 2 (preferred):
+
+	<c>= Math.abs(<v>value1<> - <v>value1<>) \< <v>epsilon<><>
+
+	<c><v>epsilon<><> = a very small number, say 0.0000001.
+
+
+
+#### Float - From String
+
+<c>float <v>float1<>= Float.parseFloat("<v>45.7<>");<>
+@
+@ Convert, Conversion, To, Parse, parseFloat
+
+
+
+#### Float - To String
+
+<c>String <v>string1<> = Float.toString(<v>float1<>);<>
+@
+@ Convert, Conversion, From
+
+
+
+### Int
+
+<c>int <v>int1<> = <v>1<>;<>
+
+Range				-2,147,483,648 ... +2,147,483,647
+Size					32 Bit
+@
+@ Create, Define, Instantiate, New, Primitive, Integer
+@ int-only
+
+
+
+### Int - Operations
+@
+@ ops
+@ int-only
+
+
+
+#### Int - From String
+
+<c>int <v>int1<> = Integer.parseInt("<v>123<>");<>
+@
+@ Convert, Conversion, To, Integer
+
+
+
+#### Int - To String
+
+<c>String <v>string1<> = Integer.toString(<v>int1<>);<>
+@
+@ Convert, Conversion, From, Integer
+
+
+
+### Long
+
+<c>long <v>long1<> = <v>1<>L;<>
+
+Range				-9,223,372,036,854,775,808 ... +9,223,372,036,854,775,807
+Size					64 Bit
+@
+@ Create, Define, Instantiate, New, Primitive
+@ long-only, longs-only
+
+
+
+### Long Operations
+@
+@ Ops
+@ long-only, longs-only
+
+
+
+#### Long - From String
+
+<c>long <v>long1<> = Long.parseLong("<v>123<>");<>
+@
+@ Convert, Conversion, To, Parse, ParseLong
+
+
+
+#### Long - To String
+
+<c>String <v>string1<> = Long.toString(<v>long1<>);<>
+@
+@ Convert, Conversion, From
+
+
+
+### Short
+
+<c>short <v>short1<> = <v>1<>;<>
+
+Range				32,768 - +32,767
+Size					16 Bit
+@
+@ Create, Define, Instantiate, New, Primitive
+@ short-only, shorts-only
+
+
+
+### Short Operations
+@
+@ Ops
+@ short-only, shorts-only
+
+
+
+#### Short - From String
+
+<c>short <v>short1<> = Short.parseShort("<v>123<>");<>
+@
+@ Convert, Conversion, To, Parse, ParseShort
+
+
+
+#### Short - To String
+
+<c>String <v>string1<> = Short.toString(<v>short1<>);<>
+@
+@ Convert, Conversion, From
+
+
+
+### Strings
+
+<c>String <v>string1<> = "<v>Text<>";<>
+<c>String <v>string2<> = "<v>\\u0054\\u0065\\u0078\\u0074<>";<>		<#>"Text";<>
+
+Length				0 ... 2^31-1 Characters
+Size (Minimum)		2 Bytes Per Character + Overhead		<#>The Actual Memory Used Varies Widely<>
+
+A string is the only standard type that is a class.
+Stored internally as UTF-16 character array (2 bytes per character).
+@
+@ Create, Define, Instantiate, New
+@ String-Only, strings-only, str-only
+
+
+
+### String Operations
+@
+@ Ops
+@ String-Only, strings-only, str-only
+
+
+
+#### String - Compare
+
+<c>= <v>string1<>.compareTo(<v>string2<>)<>
+@
+@ CompareTo
+
+
+
+#### String - Compare Ignore Case
+
+<c>= <v>string1<>.compareToIgnoreCase(<v>string2<>)<>
+@
+@ CompareTo
+
+
+
+#### String - Concatenate
+
+<c>= <v>string1<> + <v>string2<><>
+<c>= <v>string1<> + <v>123<><>									<#>Primitives Are Automatically Converted to Strings<>
+
+See Also: StringBuilder
+@
+@ Add, Join
+
+
+
+#### String - Ends With
+
+<c>= <v>string1<>.endsWith(<v>end<>)<>
+
+
+
+#### String - Equals
+
+<c>= <v>string1<>.equals(<v>string2<>)<>
+
+
+
+#### String - Equals Ignore Case
+
+<c>= <v>string1<>.equalsIgnoreCase(<v>string2<>)<>
+
+
+
+#### String - Indent
+
+<c>= <v>string1<>.indent(<v>count<>)<>
+
+Indents all lines <v>count<> spaces and normalizes line terminators (newline characters).
+
+Since: Java 12
+
+
+
+#### String - Is Blank
+
+<c>= <v>string1<>.isBlank()<>
+
+Since: Java 11
+
+
+
+#### String - Is Empty
+
+<c>= <v>string1<>.isEmpty()<>
+
+Since: Java 1.6
+
+
+
+#### String - Length
+
+<c>= <v>string1<>.length()<>
+@
+@ Size, Count
+
+
+
+#### String - Repeat
+
+<c>= <v>string1<>.repeat(<v>count<>);<>
+
+
+
+#### String - Replace - First Match
+
+<c>= <v>string1<>.replaceFirst(<v>searchString<>, <v>replacement<>)<>
+
+<c><v>searchString<><> is a regex expression.
+@
+@ Regular Expression
+
+
+
+#### String - Replace - All Matches
+
+<c>= <v>string1<>.replaceAll(<v>searchString<>, <v>replacement<>)<>
+
+<c><v>searchString<><> is a regex expression.
+@
+@ Regular Expression
+
+
+
+#### String - Search
+
+<cb>= <v>string1<>.indexOf(<v>searchString<>)<>
+
+Return values are 0 based.
+Returns -1 if not found.
+
+<c><v>searchString<><> is a regex expression.
+@
+@ Regular Expression, Contains, Find
+
+
+
+#### String - Split
+
+<cb>= <v>string_1<>.split("<v>regular_expression<>");<>
+
+<cb>= <v>string_1<>.split("<v>regular_expression<>", <v>split_count<>);<>
+
+Returns: <c>String[]<>
+
+
+Returns a string split along the split expression.
+The split part is not returned in the results.
+
+
+No Match:
+Returns the full string.
+
+Matches Beginning or End Only:
+Returns the string without match.
+
+
+Example:
+
+<cb>String <v>string_1<> = ("words-separated.by_symbols");
+String[] <v>words<> = <v>string_1<>.split("[\\\\._-]+");<>
+@
+@ Regular Expressions, regex
+
+
+
+#### String - Starts With
+
+<cb>= <v>string1<>.startsWith(<v>start<>)<>
+
+<cb>= <v>string1<>.startsWith(<v>start<>, <v>offset<>)<>
+
+
+
+#### String - Strip / Trim All
+
+<cb>= <v>string1<>.strip()<>
+
+<cb>= <v>string1<>.trim()	<#>// #1<><>
+
+Strip is the modern, Unicode aware approach to stripping whitespace.
+
+\#1  -  <c>trim()<> is similar to <c>strip()<> but doesn't catch all unicode whitespaces.
+
+Strip:
+Java Version: Java 11+
+@
+@ Left Leading, Trailing, .trim(), .strip(), Whitespace, both sides
+
+
+
+#### String - Strip Left
+
+<cb>= <v>string1<>.stripLeading()<>
+
+Strips all leading whitespace characters.
+Strip is the modern, Unicode aware approach to stripping whitespace.
+
+Java Version: Java 11+
+@
+@ Left side, .stripLeading(), trim, leading Whitespace
+
+
+
+#### String - Strip Right
+
+<cb>= <v>string1<>.stripTrailing()<>
+
+Strips all trailing whitespace characters.
+Strip is the modern, Unicode aware approach to stripping whitespace.
+
+Java Version: Java 11+
+@
+@ Right side, .stripTrailing(), trim, trailing Whitespace
+
+
+
+#### String - Substring
+
+<c>= <v>string1<>.substring(<v>start<>)<>						<#>Returns To The End<>
+<c>= <v>string1<>.substring(<v>start<>, <v>end<> + 1)<>				<#>End Parameter Is 1 Position Past Returned End<>
+<c>= <v>string1<>.substring(<v>start<>, <v>start<> + <v>length<>)<>
+
+
+Examples:
+
+<c>= "01<!>234<>".substring(2)<>							<#>Returns '234'<>
+<c>= "01<!>23<>4".substring(2, 4)<>						<#>Returns '23'<>
+@
+@ Get
+
+
+
+#### String - Input Stream - To Byte Stream
+
+<cb>= new ByteArrayInputStream(<v>string1<>.getBytes());<>
+
+<cb>= new ByteArrayInputStream(<v>string1<>.getBytes(StandardCharsets.UTF_8));<>
+
+Imports:
+
+<cb>import java.io.ByteArrayInputStream;
+import java.io.InputStream;<>
+
+
+
+#### String - Input Stream - To Character Stream
+
+<cb>= new InputStreamReader(new ByteArrayInputStream(<v>string1<>.getBytes(StandardCharsets.UTF_16)), StandardCharsets.UTF_16)<>
+
+Imports:
+
+<cb>mport java.io.ByteArrayInputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;<>
+
+Full:
+
+<cb>try (InputStreamReader <v>reader<> = new InputStreamReader(new ByteArrayInputStream(<v>string1<>.getBytes(StandardCharsets.UTF_16)),S tandardCharsets.UTF_16)) {
+
+	while (true) {
+		int <v>next<> = <v>reader<>.read();
+		if (<v>next<> == -1) break;
+		<v>...<>
+	}
+}<>
+
+
+
+#### String - To Lines
+
+<c>Stream<String> <v>lines<> = <v>string1<>.lines();<>
+
+Returns a stream of lines (splits on newline).
+
+Since: Java 11
+
+
+
+#### String - To Lower Case
+
+<c>= <v>string1<>.toLowerCase()<>
+
+
+
+#### String - To Upper Case
+
+<c>= <v>string1<>.toUpperCase()<>
+
+
+
+### Object
+
+<c>Object <v>object1<> = new Object()<>;<>					<#>Possible To Do But Not Useful<>
+
+The base class for all other classes in Java.
+
+Size					8 Bytes
+
+java.lang.Object is the root class of all Java classes.
+@
+@ Objects, Root
+@ Create, Define, Instantiate, New
+@ object-only, objects-only, obj-only
+
+
+
+### Object Operations
+@
+@ Objects, Ops
+@ object-only, objects-only, obj-only
+
+
+
+#### Object - Equals
+
+<c>= <v>object1<>.equals(<v>object2<>)<>
+
+
+Returns true if the objects are equal.
+
+<!>Override this method in subclasses.<>
+
+
+
+#### Object - Get  Class
+
+<c>= <v>object1<>.getClass()<>
+@
+@ Type
+
+
+
+#### Object - Hashcode
+
+<c>= <v>object1<>.hashCode()<>
+
+Returns the hash code value of the object.
+
+<!>Override this method in subclasses.<>
+
+
+
+#### Object - To String
+
+<c>String <v>string1<> = <v>object1<>.toString()<>
+
+Works on all classes. Can be overridden.
+@
+@ Class, Convert, Conversion, From
+
+
+
+## Standard Classes
+
+These are class representations of the standard Java primitives.
+
+
+
+### Boolean Class
+
+<c>Boolean <v>boolean11<> = true;								<#>Uses Auto Boxing<>
+<c>Boolean <v>boolean11<> = Boolean.valueOf(true);
+@
+@ Create, Define, Instantiate, New
+
+
+
+### Byte Class
+
+<c>Byte <v>byte1<> = 123;								<#>Uses Auto Boxing<>
+<c>Byte <v>byte1<> = Byte.valueOf(123);
+@
+@ Create, Define, Instantiate, New
+
+
+
+### Character Class
+
+<c>Character <v>char1<> = 'a';										<#>Uses Auto Boxing<>
+<c>Character <v>char1<> = Character.valueOf('a');
+
+Class representation of char type.
+@
+@ Create, Define, Instantiate, New
+
+
+
+### Double Class
+
+<c>Double <v>double1<> = 1.23d;									<#>Uses Auto Boxing<>
+<c>Double <v>double1<> = Double.valueOf(1.23d);
+@
+@ Create, Define, Instantiate, New
+
+
+
+### Float Class
+
+<c>Float <v>float1<> = 1.23f;									<#>Uses Auto Boxing<>
+<c>Float <v>float1<> = Float.valueOf(1.23f);
+@
+@ Create, Define, Instantiate, New
+
+
+
+### Integer Class
+
+<c>Integer <v>integer1<> = 123;									<#>Uses Auto Boxing<>
+<c>Integer <v>integer1<> = Integer.valueOf(123);
+@
+@ Create, Define, Instantiate, New
+
+
+
+### Long Class
+
+<c>Long <v>long1<> = 123l;										<#>Uses Auto Boxing<>
+<c>Long <v>long1<> = Long.valueOf(123l);
+@
+@ Create, Define, Instantiate, New
+
+
+
+### Short Class
+
+<c>Short <v>short1<> = 123;										<#>Uses Auto Boxing<>
+<c>Short <v>short1<> = Short.valueOf(123);
+@
+@ Create, Define, Instantiate, New
+
+
+
+## Arrays
+
+
+
+### Array
+
+<c><v>Type<>[] <v>array1<> = {<v>value1<>, <v>value2<>, <v>value3...<>};<>		<#>Only Works On Declaration<>
+<c><v>Type<>[] <v>array1<> = new <v>Type<>[] {<v>value1<>, <v>value2<>, <v>value3...<>};<>
+
+<c><v>Type<>[] <v>array2<> = new <v>Type<>[0];<> 					<#>Empty Array<>
+<c><v>Type<>[] <v>array3<> = new <v>Type<>[4];<>						<#>4 Element Array (Elements 0,1,2,3)<>
+
+<c><v>Type<>[][] <v>array4<> = new <v>Type<>[3][5];<>				<#>Array of Arrays<>
+
+Arrayz use 0 based indexes.
+Arrays initialize to 0, false, null, etc.
+Maximum number of elements = Integer.MAX - 5
+
+
+Immutable.
+@
+@ Create, Define, Instantiate, New
+@ Initialization
+@ array-only, arrays-only
+
+
+
+### Array Operations
+@
+@ Ops
+@ array-only, arrays-only
+
+
+
+#### Array - Append
+
+Create Append Method:
+
+<cb>public static <v>type<>[] append(<v>type<>[] original, <v>type<> value) {
+
+	<v>type<>[] resized = new <v>type<>[original.length + 1];
+
+	for (var i = 0; i < original.length; i++)
+		resized[i] = original[i];
+
+	resized[original.length] = value;
+	return resized;
+}<>
+
+Append:
+
+<cb><v>array1<> = append(<v>array1<>, <v>value<>);<>
+
+
+Don't do this.
+You are recreating the array every time.
+Prefer using <c>List<> instead.
+
+
+
+#### Array - Assign
+
+<c><v>array1<>[<v>index<>] = <v>value<><>
+@
+@ Change
+
+
+
+#### Array - Get
+
+<c>= <v>array1<>[<v>index<>]<>
+
+
+
+#### Array - Get First
+
+<c>= <v>array1<>[0]<>
+@
+@ Beginning
+
+
+
+#### Array - Get Last
+
+<c>= <v>array1<>[<v>array1<>.length - 1]<>
+@
+@ End
+
+
+
+#### Array - Is Empty
+
+<c>= (<v>array1<>.length == 0)<>
+@
+@ Length, Count
+
+
+
+#### Array - Size
+
+<c>= <v>array1<>.length<>
+@
+@ Length, Count
+
+
+
+#### Array - Create And Pass
+
+<c><v>someMethod<>(new <v>Type<>[] {<v>value1<>, <v>value2<>, <v>value3...<>});<>
+
+
+
+#### Array - Copy
+
+<c>System.arraycopy(<v>sourceArray<>, <v>sourcePosition<>, <v>destinationArray<>, <v>destinationPosition<>, <v>length<>);<>
+
+
+
+#### Arrary - Sort
+
+<c>= Arrays.sort(<v>array1<>, <v>startIndex<>, <v>endIndexPlusOne<>)<>
+
+
+
+## Enumerations
+
+
+
+### Enum
+
+<b>Basic:<>
+
+<c>public enum <v>Enum1<> {
+	<v>VALUE_1<>,
+	<v>VALUE_2<>,
+	<v>...<>;
+}<>
+
+
+<b>Extended:<>
+
+<c>public enum <v>Enum1<> {
+
+	<v>VALUE_1<>(<v>param1<>, <v>...<>),
+	<v>VALUE_2<>(<v>param1<>, <v>...<>),
+	<v>...<>;
+
+	public <v>Enum1<>(<v>Type1<> <v>param1<>, <v>...<>) {
+		<v>...<>
+	}
+
+	<#>// Methods go here...<>
+}<>
+
+
+Enums are proper classes under the hood and can be extended like any other class.
+
+Base Class:			java.lang.enum
+@
+@ New, Create, Define
+@ enum-only, enums-only
+
+
+
+### Enum Operations
+@
+@ Ops
+@ enum-only, enums-only
+
+
+
+#### Enum - Get Value
+
+<c><v>Enum1<> <v>value1<> = <v>Enum1<>.<v>VALUE_1<>;<>
+@
+@ Assign From
+
+
+
+#### Enum - Get Value Name
+
+<c>String <v>name1<> = <v>Enum1<>.<v>VALUE_1<>.getName();<>
+
+
+
+#### Enum - Get Values
+
+<c><v>Enum1<>[] <v>values<> = <v>Enum1<>.values();<>
+
+Returns all the values for the enum.
+
+
+
+#### Enum - Equals
+
+<c>= (<v>value1<> == <v>Enum1<>.<v>VALUE_1<>)<>
+
+Works becaues only one instance of each type exists.
+
+
+
+#### Enum - Switch Statement
+
+<c>switch (<v>enumValue<>) {
+
+	case <v>VALUE_1<>
+		<v>...<>
+}
+
+
+
+### EnumSet
+
+<c>Set\<<v>Enum1<>> <v>enumSet1<> = EnumSet.of (<v>Enum1<>.<v>VALUE_1<>, <v>Enum1<>.<v>VALUE_3<>, <v>...<>);<>
+
+Convenience method to create an enum set. Use instead of bit fields.
+@
+@ Enum Set
+
+
+
+## Date Time
+
+
+
+### Date Time - Classic Types
+
+
+
+#### Date
+
+<cb>import java.util.Date;<>
+
+<cb>Date <v>date1<> = new Date()<>
+
+This will return an instance with the current date and time.
+
+Prefer: LocalDate, LocalDateTime
+@
+@ Create, Define, Instantiate, New, Epoch Time
+@ date-only, dates-only, java.util.Date
+
+
+
+#### Date Operations
+@
+@ Ops
+@ date-only, dates-only
+
+
+
+##### Date - From Epoch Time
+
+<cb>import java.util.Date;<>
+
+<cb>= new Date(<v>epochTime<>)<>
+@
+@ java.util.Date
+
+
+
+##### Date - To Epoch Time
+
+<cb>int <v>epochTime<> = <v>date1<>.getTime()<>
+@
+@ .gettime()
+
+
+
+##### Date - From String
+
+<cb>import java.text.DateFormat;<>
+
+<cb>DateFormat <v>format<> = new SimpleDateFormat("<v>yyyy-mm-dd'T'HH:mm:ssZ<>");
+Date <v>date1<> = <v>format<>.parse(<v>"2001-02-23T12:34:56-0500"<>);<>
+@
+@ Conversion, Convert, To
+
+
+
+##### Date - To String
+
+<cb>import java.text.DateFormat;
+import java.text.SimpleDateFormat;<>
+
+<cb>DateFormat <v>format<> = new SimpleDateFormat("<v>yyyy-mm-dd'T'HH:mm:ssZ<>");
+String <v>formattedDateTime1<> = <v>format<>.format(<v>date1<>);<>
+@
+@ Conversion, Convert, From, java.text.DateFormat, java.text.SimpleDateFormat
+
+
+
+##### Date - From Year, Month, Day
+
+<cb>import java.util.Calendar;<>
+
+<cb>Calendar <v>calendar<> = Calendar.getInstance();
+<v>calendar<>.set(<v>year<>, <v>month<> - 1, <v>day<>);
+Date <v>date1<> = <v>calendar<>.getTime();<>
+
+Note: Months are zero based(January = 0). So subtract 1 if using 1..12 for months(as in the example here).
+Why? Someone really screwed that one up early in Java's development life and we are now stuck with it.
+@
+@ java.util.Calendar
+
+
+
+##### Date - From Year, Month, Day, Hour, Minute, Second
+
+<cb>Calendar <v>calendar<> = Calendar.getInstance();
+<v>calendar<>.set(<v>year<>, <v>month<> - 1, <v>day<>, <v>hour<>, <v>minute<>, <v>second<>);
+Date <v>date1<> = calendar.getTime();<>
+
+Note: Months are zero based(January = 0). So subtract 1 if using 1..12 for months(as in the example here).
+Why? Someone really screwed that one up early in Java's development life and we are now stuck with it.
+
+
+
+##### Date - To Year, Month, Day, Hour, Minute, Second
+
+<cb>Calendar <v>calendar<> = Calendar.getInstance();
+<v>calendar<>.getTime(date1);
+
+int <v>year<> = <v>calendar<>.get(Calendar.YEAR);
+int <v>day<> = <v>calendar<>.get(Calendar.DATE);
+int <v>month<> = 1 + <v>calendar<>.get(Calendar.MONTH);
+int <v>hour<> = <v>calendar<>.get(Calendar.HOUR);
+int <v>minute<> = <v>calendar<>.get(Calendar.MINUTE);
+int <v>second<> = <v>calendar<>.get(Calendar.SECOND);<>
+
+
+
+### Date Time - Modern Types
+
+
+
+#### Summary
+
+<cb>Clock
+Instant<>
+
+<cb>ZoneId
+ZoneOffset
+ZonedDateTime<>
+
+<cb>LocalDate
+LocalDateTime
+LocalTime<>
+
+Note: Days and months are 1 based (e.g. January = 1).
+
+Introduced in Java 8.
+
+
+
+#### Standard Operations
+@
+@ Ops
+
+
+
+##### Date Time Classes - Equals
+
+<cb>= <v>someDateTime1<>.equals (<v>someDateTime2<>)<>
+@
+@ LocalTime, LocalDate, LocalDateTime, ZonedDateTime, Instant
+@ Local Date Time, Zoned
+
+
+
+##### Date Time Classes - Is Before
+
+<cb>= <v>someDateTime1<>.isBefore(<v>someDateTime2<>)<>
+@
+@ LocalTime, LocalDate, LocalDateTime, ZonedDateTime, Instant
+@ Local Date Time, Zoned, .isbefore()
+
+
+
+##### Date Time Classes - Is After
+
+<cb>= <v>someDateTime1<>.isAfter(<v>someDateTime2<>)<>
+@
+@ IsAfter
+@ LocalTime, LocalDate, LocalDateTime, ZonedDateTime, Instant
+@ Local Date Time, Zoned
+
+
+
+##### Date Time Classes - Add
+
+<cb>= <v>someDateTime1<>.plus(<v>value<>, <v>cronoUnit<>)<>
+
+
+Example:
+
+<cb>= <v>localDateTime1<>.plus(1, ChronoUnit.Minutes)<>
+@
+@ Plus
+@ LocalTime, LocalDate, LocalDateTime, ZonedDateTime, Instant
+@ Local Date Time, Zoned
+
+
+
+##### Date Time Classes - Subtract
+
+<c>= <v>someDateTime1<>.minus(<v>value<>, <v>cronoUnit<>)<>
+
+
+Example:
+
+<cb>= <v>localDateTime1<>.minus(1, ChronoUnit.Minutes)<>
+@
+@ Minus
+@ LocalTime, LocalDate, LocalDateTime, ZonedDateTime, Instant
+@ Local Date Time, Zoned
+
+
+
+#### Clock
+
+<cb>Clock <v>clock1<> = Clock.systemUTC();<>
+
+Note: Immutable type.
+@
+@ Create, Define, Instantiate, New, Clock(), clock-only
+
+
+
+#### Clock Operations
+@
+@ Ops, clock(), clock-only
+
+
+
+##### Clock - To Local Date
+
+<cb>= LocalDate.now(<v>clock1<>)<>
+
+
+
+##### Clock - To Local Date Time
+
+<cb>= LocalDateTime.now(<v>clock1<>)<>
+
+
+
+##### Clock - To Milliseconds
+
+<cb>= <v>clock1<>.millis()<>
+
+
+
+#### Duration
+
+<cb>import java.time.Duration;<>
+
+<cb>= Duration.ofSeconds(<v>seconds<>);
+= Duration.ofMinutes(<v>minutes<>);
+= Duration.ofHours(<v>hours<>);
+= Duration.ofDays(<v>days<>);<>
+
+<cb>Duration <v>duration1<> = Duration.of(<v>count<>, <v>temporalUnit<>);<>
+
+
+Example:
+
+<cb>Duration <v>duration1<> = Duration.of(<v>7<>, ChronoUnit.<v>DAYS<>);<>
+@
+@ Create, Define, Instantiate, New, duration(), duration-only
+
+
+
+#### Duration Operations
+@
+@ Ops, duration(), duration-only
+
+
+
+##### Duration - Is Equal?
+
+<cb>= <v>duration_1<>.equals(<v>duration_2<>)<>
+@
+@ equals, ==, not, compare, .equals(), the same
+
+
+
+##### Duration - Compare Durations
+
+<cb>= <v>duration_1<>.compareTo(<v>duration_2<>)<>
+
+< 0		=>		<c><v>duration_1<><> < <c><v>duration_2<><>
+= 0		=>		<c><v>duration_1<><> = <c><v>duration_2<><>
+> 0		=>		<c><v>duration_1<><> > <c><v>duration_2<><>
+@
+@ less than, greater than, equals
+
+
+
+##### Duration - Difference Between 2 Local Date Times
+
+<cb>= Duration.between(<v>localDateTime1<>, <v>localDateTime2<>)<>
+@
+@ LocalDateTime
+@ Difference, minus, subtract
+
+
+
+##### Duration - Difference Between 2 Zoned Date Times
+
+<cb>= Duration.between(<v>zonedDateTime1<>, <v>zonedDateTime2<>)<>
+@
+@ ZonedDateTime
+@ Difference, minus, subtract
+
+
+
+##### Duration - From Days
+
+<cb>Duration duration1 = Duration.ofDays(<v>days<>)<>
+
+
+
+##### Duration - To Days
+
+<cb>= <v>duration1<>.toDays()<>
+
+
+
+##### Duration - From Seconds
+
+<cb>Duration duration1 = Duration.ofSeconds(<v>seconds<>)<>
+
+
+
+##### Duration - To Seconds
+
+<cb>= <v>duration1<>.toSeconds()<>
+
+
+Returns the duration in seconds.
+
+
+
+##### Duration - To String
+
+There is no easy way to do this. Thanks Java!
+@
+@ Format From
+
+
+
+##### Duration - To String Function
+
+Function:
+
+<cb>public static String <v>toString<>(Duration <v>duration<>) {
+		
+	remainder = <v>duration<>.getSeconds();
+	var <v>days<> = (int) (remainder / 86400);
+	remainder = remainder % 86400;
+	var <v>hours<> = (int) (remainder / 3600);
+	remainder = remainder % 3600;
+	var <v>minutes<> = (int) (remainder / 60);
+	<v>seconds<> = remainder % 60;
+	
+	if (<c>days<> > 0)
+		return String.format("%d days %d:%02d:%02d", <v>days<>, <v>hours<>, <v>minutes<>, <v>seconds<>);
+
+	return String.format("%d:%02d:%02d", <v>hours<>, <v>minutes<>, <v>seconds<>);
+}<>
+
+Call:
+
+<cb>String <v>formatted<> = <v>toString<>(<v>duration1<>);<>
+
+
+
+#### Instant
+
+<cb>import java.time.Instant;<>
+
+<cb>Instant <v>instance1<> = Instant.now();<>
+
+The epoch time.
+A moment in time measured in nanoseconds from January 1 1970 at 00:00:00 UTC/GMT.
+@
+@ Epoch Time, Timestamp
+@ Create, Define, Instantiate, New
+
+
+
+#### Instance Operations
+@
+@ Ops
+
+
+
+#### LocalDate
+
+<cb>import java.time.LocalDate;<>
+
+<cb>LocalDate <v>date1<> = LocalDate.now();
+
+LocalDate <v>date2<> = LocalDate.of(<v>year<>, <v>month<>, <v>day<>);<>
+
+Note: Immutable.
+@
+@ Local Date
+@ Create, Define, Instantiate, New
+
+
+
+#### LocalDate Operations
+@
+@ Ops
+
+
+##### LocalDate - From String
+
+<cb>import java.time.format.DateTimeFormatter;<>
+
+<c>DateTimeFormatter <v>formatter<> = DateTimeFormatter.ofPattern(<v>"date-format"<>);
+LocalDate <v>localDate1<> = <v>LocalDate<>.parse(<v>"date-string"<>, <v>formatter<>);<>
+
+
+Example:
+
+<c>DateTimeFormatter <v>formatter<> = DateTimeFormatter.ofPattern(<v>"yyyy-MM-dd"<>);
+LocalDate <v>localDate1<> = LocalDate.parse(<v>"2001-02-03 12:34:56"<>, <v>formatter<>);<>
+@
+@ Local Date
+@ Conversion, Convert, To
+
+
+
+##### LocalDate - To String
+
+<c>DateTimeFormatter <v>formatter<> = DateTimeFormatter.ofPattern(<v>"date-format"<>);
+String formattedDate1 = <v>localDate1<>.format(<v>formatter<>);<>
+
+
+Example:
+
+<c>DateTimeFormatter <v>formatter<> = DateTimeFormatter.ofPattern(<v>"yyyy-MM-dd"<>);
+String <v>formattedDate1<> = <v>localDate1<>.format(<v>formatter<>);<>
+@
+@ Local Date
+@ Conversion, Convert, From
+
+
+
+#### LocalDateTime
+
+<c>LocalDateTime <v>dateTime1<> = LocalDateTime.now();<>
+
+<c>LocalDateTime <v>dateTime2<> = LocalDateTime.of(<v>year<>, <v>month<>, <v>day<>, <v>hour<>, <v>minute<>, <v>second<>);<>
+
+<c>LocalDateTime <v>dateTime3<> = LocalDateTime.of(<v>year<>, <v>month<>, <v>day<>, <v>hour<>, <v>minute<>, <v>second<>, <v>nanosec<>);<>
+
+
+Note: Immutable.
+Note: Does not store timezone.
+@
+@ Local Date Time
+@ Create, Define, Instantiate, New, datetime
+
+
+
+#### LocalDateTime Operations
+@
+@ Ops, local date time, datetime
+
+
+##### LocalDateTime - From String
+
+<c>DateTimeFormatter <v>formatter<> = DateTimeFormatter.ofPattern(<v>"date-format"<>);
+LocalDateTime <v>dateTime1<> = LocalDateTime.parse(<v>"date-time-string"<>, <v>formatter<>);<>
+
+
+Example:
+
+<c>DateTimeFormatter <v>formatter<> = DateTimeFormatter.ofPattern(<v>"yyyy-MM-dd HH:mm:ss"<>);
+LocalDateTime <v>localDateTime1<> = LocalDateTime.parse(<v>"2001-02-03 12:34:56"<>, <v>formatter<>);<>
+@
+@ Local Date Time
+@ Conversion, Convert, To
+
+
+
+##### LocalDateTime - To String
+
+<c>DateTimeFormatter <v>formatter<> = DateTimeFormatter.ofPattern(<v>"date-format"<>);
+String <v>formattedDateTime1<> = <v>localDateTime1<>.format(<v>formatter<>);<>
+
+
+Example:
+
+<c>DateTimeFormatter <v>formatter<> = DateTimeFormatter.ofPattern(<v>"yyyy-MM-dd HH:mm:ss"<>);
+String <v>formattedDateTime1<> = <v>localDateTime1<>.format(<v>formatter<>);<>
+@
+@ Local Date Time
+@ Conversion, Convert, From
+
+
+
+#### LocalTime
+
+<c>LocalTime <v>time1<> = LocalTime.now();<>
+
+<c>LocalTime <v>time2<> = LocalTime.of(<v>hour<>, <v>min<>, <v>sec<>);<>
+
+<c>LocalTime <v>time3<> = LocalTime.of(<v>hour<>, <v>min<>, <v>sec<>, <v>nanosec<>);<>
+
+
+Note: Immutable.
+@
+@ Local Time
+@ Create, Define, Instantiate, New
+
+
+
+#### LocalTime Operations
+@
+@ Ops
+
+
+##### LocalTime - From String
+
+<c>DateTimeFormatter <v>formatter<> = DateTimeFormatter.ofPattern(<v>"date-format"<>);
+LocalTime <v>dateTime1<> = LocalTime.parse(<v>"time-string"<>, <v>formatter<>);<>
+
+
+Example:
+
+<c>DateTimeFormatter <v>formatter<> = DateTimeFormatter.ofPattern(<v>"HH:mm:ss"<>);
+LocalTime <v>localTime1<> = LocalTime.parse(<v>"12:34:56"<>, <v>formatter<>);<>
+@
+@ Local Date Time
+@ Conversion, Convert, To
+
+
+
+##### LocalTime - To String
+
+<c>DateTimeFormatter <v>formatter<> = DateTimeFormatter.ofPattern(<v>"date-format"<>);
+String <v>formattedTime1<> = <v>localTime1<>.format(<v>formatter<>);<>
+
+
+Example:
+
+<c>DateTimeFormatter <v>formatter<> = DateTimeFormatter.ofPattern(<v>"HH:mm:ss"<>);
+String <v>formattedTime1<> = <v>localTime1<>.format(<v>formatter<>);<>
+@
+@ Local Date Time
+@ Conversion, Convert, From
+
+
+
+#### MonthDay
+
+<c>month1 = MonthDay.of(<v>month<>, <v>day<>);<>
+
+<c>month2 = MonthDay.from(<v>someDateTime1<>);<> 			<#>Can be any new date based object.<>
+
+Recurring month and day.
+@
+@ Month Day
+@ Create, Define, Instantiate, New
+
+
+
+#### ZonedDateTime
+
+<cb>import java.time.ZonedDateTime;<>
+
+<cb>= ZonedDateTime.now();
+
+= ZoneDateTime.of(<v>year<>, <v>month<>, <v>date<>, <v>hours<>, <v>minutes<>, <v>seconds<>, <v>nanoSeconds<>, <v>zoneId<>);
+
+= <v>instant<>.atZone(<v>zoneId<>);<>
+
+Requires an instance and a zone id.
+
+
+Example:
+
+<cb>ZonedDateTme <v>zonedDateTime1<> = ZoneDateTime.of(<v>1999<>, <v>12<>, <v>31<>, <v>23<>, <v>59<>, <v>59<>, <v>0<>, ZoneId.of(<v>"EST"<>));<>
+@
+@ Zoned Date Time
+@ Create, Define, Instantiate, New, datetime
+
+
+#### ZoneId
+
+<cb>ZoneID <v>zoneId1<> = ZoneId.of(<v>zoneString<>);<>
+
+Identifies a timezone.
+
+Examples:
+
+<c>ZoneID zoneId1 = ZoneId.of("UTC");<>
+<c>ZoneID zoneId1 = ZoneId.of("Zulu");<>
+
+<c>ZoneID zoneId1 = ZoneId.of("EST");<>
+<c>ZoneID zoneId1 = ZoneId.of("America/New_York");<>
+@
+@ Create, Define, Instantiate, New
+
+
+
+
+#### ZoneOffset
+
+<c>ZoneOfset <v>zoneOffset1<> = ZoneOffset.of(<v>offsetHours<>);<>
+<c>ZoneOfset <v>zoneOffset1<> = ZoneOffset.of(<v>offsetHours<>, <v>offsetMinutes<>);<>
+
+Time offset from UTC.
+@
+@ Create, Define, Instantiate, New
+
+
+
+## Collections
+
+
+
+### Summary
+
+<c>Collection<>		A group of objects. the root of all collection types.
+<c>List<>			An ordered collection of objects.
+<c>Map<>				A collection of objects mapped by keys. Duplicate keys are not allowed.
+<c>Queue<>				A collection of objects to be processed in order.
+<c>Set<>				A collection of objects. No duplicates allowed.
+
+
+
+### Collection Types
+
+
+
+#### Collection
+
+Represents a group of objects. This is the root interface of all collection types.
+
+Interface:			<c>java.util.Collection<>
+
+
+Subtypes Include:
+
+List
+Queue
+Set
+@
+@ Define
+
+
+
+#### ArrayList
+
+<c>List\<<v>Type<>> <v>list1<> = new ArrayList\<>();<>
+<c>List\<<v>Type<>> <v>list1<> = new ArrayList\<>(<v>size<>);<>
+
+Standard implementation of <c>List<>.
+Non-synchronized, iterator fail-safe.
+
+Class:			<c>java.util.ArrayList<>
+
+See Also: List
+@
+@ New, Create, Define, Instantiate
+
+
+
+#### Deque
+
+<!>Untested<>
+
+<cb>Deque<>
+
+Import:
+
+<cb>import java.util.Deque;<>
+
+
+Double Sided Queue. Pronounced Deck.
+Interface.
+
+
+Implementations:
+
+<cb>LinkedList
+ConcurrentLinkedDeque<>
+
+
+Example:
+
+<cb>import java.util.Deque;
+import java.util.LinkedList;<>
+
+<cb>Deque\<<v>String<>> <v>queue1<> = new LinkedList\<>();<>
+@
+@ Stack
+
+
+
+#### Deque Operations
+
+<!>Untested<>
+
+
+
+##### Deque - Append
+
+<cb><v>deque1<>.add(<v>value<>);<>
+
+or
+
+<cb><v>deque1<>.addLast(<v>value<>);<>
+
+
+These are equivalent.
+@
+@ put, add last, add end
+
+
+
+##### Deque - Prepend
+
+<cb><v>deque1<>.addFirst(<v>value<>);<>
+@
+@ put, insert first, add first, beginning
+
+
+
+#### Deque - Get First
+
+<cb>= <v>deque1<>.getFirst();<>
+
+Returns the first element from <c><v>deque1<><>.
+<c><v>deque1<><> is left unchanged.
+@
+@ item, value, element
+
+
+
+##### Deque - Get Last
+
+<cb>= <v>deque1<>.getLast();<>
+
+Returns the last element from <c><v>deque1<><>.
+<c><v>deque1<><> is left unchanged.
+@
+@ item, value, element
+
+
+
+#### Deque - Pop First
+
+<cb><v>deque1<>.remove();<>
+
+or
+
+<cb><v>deque1<>.removeFirst();<>
+
+
+These are equivalent.
+
+Removes and returns the first element from <c><v>deque1<><>.
+@
+@ item, value, element
+
+
+
+
+##### Deque - Pop Last
+
+<u]cb>= <v>deque1<>.removeLast();<>
+
+Removes and returns the last element from <c><v>deque1<><>.
+@
+@ item, value, element
+
+
+
+
+#### LinkedList
+
+<c]cb>LinkedList\<<v>Type<>> <v>linkedList1<> = new LinkedList\<>();
+
+
+Non-synchronized. Implements <c>Deque<>, <c>List<>.
+
+Class:			<c>java.util.LinkedList
+@
+@ Linked List
+@ New, Create, Define, Instantiate
+
+
+
+#### LinkedList Operations
+@
+@ Ops
+
+
+
+##### LinkedList - Replace Element
+
+<c><v>list1<>.set(<v>list1<>.indexOf (<v>currentItem<>), <v>replacementItem<>);<>
+
+
+
+#### List
+
+<c>List\<<v>Type<>> <v>list1<> = new ArrayList\<>();<>
+<c>List\<<v>Type<>> <v>list1<> = new ArrayList\<>(<v>size<>);<>
+<c>List\<<v>Type<>> <v>list2<> = List.of(<v>value1<>, <v>value2<>, <v>...<>);<>
+
+Interface:			<c>java.util.List<>
+
+An interface that defines an ordered collection of objects.
+@
+@ New, Create, Define, Instantiate
+
+
+
+#### List Types
+
+<c>ArrayList<>		Non-synchronized, Iterator Fail-safe
+<c>LinkedList<>		Non-synchronized (Implements Deque)
+<c>LinkedHashMap<>	Ordered Map List (On Insertion Order)
+<c>TreeMap<>			Sorted Map List (On Natural Order)
+<c>Vector<>			Synchronized, Enumerator Not Fail-safe
+
+
+Standard List		<c>ArrayList<>
+Linked List		<c>LinkedList<>
+Sorted List		<c>LinkedHashMap<>
+Thread Safe List	<c>Vector<>
+Immutable List		None							<#>Consider Using Google Guava<>
+@
+@ Subtypes
+
+
+
+#### List Operations
+@
+@ Ops
+
+
+
+##### List - Get
+
+<c>= <v>list1<>.get(<v>index<>);<>
+
+
+
+##### List - Get First
+
+<c>= <v>list1<>.get(0);<>
+@
+@ Beginning
+
+
+
+##### List - Get Last
+
+<c>= <v>list1<>.get(<v>list1<>.size() - 1);<>
+@
+@ End
+
+
+
+##### List - Iterate
+
+<c>for (<v>Type<> <v>item<> : <v>list1<>) {
+	<v>...<>
+}<>
+
+
+
+##### List - Add
+
+<c><v>list1<>.add(<v>value<>);<>
+
+
+Adds to the end of the list.
+@
+@Concatenate
+
+
+
+##### List - Add All
+
+<c><v>list1<>.addAll(<v>list2<>);<>
+
+<c><v>list1<>.addAll(<v>collection1<>);<>
+@
+@ Append, addAll, join, Collection, Merge
+
+
+
+##### List - Duplicate
+
+<c>List\<<v>Type<>> <v>list2<> = new ArrayList\<>(<v>list1<>);<>
+
+
+Performs a shallow copy.
+Preserves list order.
+@
+@ Copy
+
+
+
+##### List - Insert
+
+<c><v>list1<>.add(<v>index<>, <v>value<>);<>
+@
+@ Add
+
+
+
+##### List - Insert At The Beginning
+
+<c><v>list1<>.add(0, <v>value<>);<>
+@
+@ Add First
+
+
+
+##### List - Is Empty?
+
+<c>= <v>list1<>.isEmpty()<>
+
+
+
+##### List - Remove
+
+<c><v>list1<>.remove(<v>index<>);<>
+@
+@ Delete
+
+
+
+##### List - Remove All
+
+<c><v>list1<>.removeAll();<>
+@
+@ Delete, Clear, removeAll
+
+
+
+##### List - Set
+
+<c><v>list1<>.set(<v>index<>, <v>value<>);<>
+
+
+Replace value at the location <v>index<> with <v>value<>.
+@
+@ Change, Update
+
+
+
+##### List - Size
+
+<c>= <v>list1<>.size()<>
+@
+@ Count, Length
+
+
+
+##### List - Sort
+
+<c>Collections.sort (<v>list1<>);<>
+<c>Collections.sort (<v>list1<>, <v>comparator<>);<>
+
+Sorts in place.
+
+
+
+##### List - Sort, Reversed
+
+<c>Collections.reverse (<v>list1<>);<>
+<c>Collections.reverse (<v>list1<>, <v>comparator<>);<>
+
+Sorts in place.
+
+
+
+##### List - Sublist
+
+<c>= <v>list1<>.sublist(<v>from<>, <v>to<>)<>
+
+
+Returns a sublist of items starting from and including index <v>from<>, up to but excluding index <v>to<>.
+
+@
+@ Sub list, subset, subrange range
+
+
+
+##### List - From Array
+
+<c>List\<<v>Type<>> <v>list1<> = Arrays.asList(<v>array1<>);<>
+@
+@ To
+
+
+
+##### List - To Array
+
+<c><v>Type<>[] <v>array1<> = <v>list1<>.toArray(new <v>Type<>[0]);<>
+@
+@ From
+
+
+
+##### List - From Collection
+
+<c>List\<<v>Type<>> <v>list1<> = new ArrayList\<>(<v>collection1<>);<>
+@
+@ To
+
+
+
+#### Map
+
+<cb>Map\<<v>Key<>,<v>Value<>> <v>map1<> = new HashMap\<>();<>
+
+<cb>Map\<<v>Key<>,<v>Value<>> <v>map1<> = Map.of(
+		<v>key1<>, <v>value1<>,
+		<v>key2<>, <v>value2<>,
+		<v>...<>
+		);				<#>// 1.<><>
+
+Import:
+
+<cb>java.util.Map<>
+
+
+1.  <s>-<>  For Up To 10 Key Value Pairs.
+
+
+A collection of objects mapped by keys.
+Duplicate keys are not allowed.
+Each key maps to one and only one value.
+@
+@ Dict, Dictionary, HashMap
+@ Create, Define, Instantiate, New
+
+
+
+#### Map Types
+
+<c>ConcurrentHashMap<>		Thread Safe
+<c>HashMap<>			Standard
+<c>LinkedHashMap<>	Ordered Map (Insert Order)
+<c>TreeMap<>			Sorted Map (Natural Order)
+
+
+Standard			<c>HashMap<>
+Ordered Map		<c>LinkedHashMap<>					<#>Inserted Order<>
+Sorted Map		<c>TreeMap<>							<#>Natural Order<>
+Thread Safe		<c>ConcurrentHashMap<>
+Immutable List		None							<#>Consider Using Google Guava<>
+@
+@ Subtypes
+@ Dict, Dictionary, HashMap
+
+
+
+#### Map Operations
+@
+@ Ops
+@ Dict, Dictionary, HashMap
+
+
+
+##### Map - Get
+
+<cb>= <v>map1<>.get(<v>key1<>)<>
+
+Not found? Returns <c>null<>.
+@
+@ Retrieve
+
+
+
+##### Map - Get or Default Value
+
+<cb>= <v>map1<>.get(<v>key1<>, <v>default<>)<>
+@
+@ Retrieve
+
+
+
+##### Map - Get Keys
+
+<cb>Set\<<v>Key<>> <v>keys<> = <v>map1<>.keySet();<>
+@
+@ Keyset
+@ Retrieve
+
+
+
+##### Map - Get Values
+
+<cb>Collection\<<v>Value<>> <v>values<> = <v>map1<>.values();<>
+@
+@ Retrieve
+
+
+
+##### Map - Get Key Value Pairs
+
+<cb>Set\<Map.Entry\<<v>Key<>,<v>Values<>>> <v>entries<> = <v>map1<>.entrySet();
+@
+@ entrySet
+@ Retrieve
+
+
+
+##### Map - Add
+
+<cb><v>map1<>.put(<v>key1<>, <v>value1<>);<>
+@
+@ Put, insert
+
+
+
+##### Map - Add Map
+
+<cb><v>map1<>.putAll(<v>map2<>);<>
+
+
+Add all elements of map2 into map.
+@
+@ PutAll, addall, all, put, join, insert,  merge
+
+
+
+##### Map - Duplicate
+
+<cb>Map\<<v>Key<>,<v>Value<>> <v>map2<> = new HashMap\<K, V>(<v>map1<>);<>
+
+
+Performs a shallow copy.
+@
+@ Copy
+
+
+
+##### Map - Remove
+
+<cb><v>map1<>.remove(<v>key<>);<>
+
+
+Returns null if no match found.
+@
+@ delete
+
+
+
+##### Map - Remove All
+
+<cb><v>map1<>.clear();<>
+@
+@ clear, delete, removeAll
+
+
+
+##### Map - Has Key?
+
+<cb>= <v>map1<>.containsKey(<v>key<>)<>
+@
+@ Contains, containsKey
+
+
+
+##### Map - Has Value?
+
+<cb>= <v>map1<>.containsValue(<v>value<>)<>
+@
+@ Contains, containsValue
+
+
+
+##### Map - Initialize a Static Map
+
+<cb>class <v>InitializingClass<> {
+
+	public final static Map\<<v>Key<>, <v>Value<>> <v>map1<> = new HashMap\<>();
+
+	<#>// Static Block...<>
+	{
+		<v>map1<>.put (<v>key1<>, <v>value1<>);
+		<v>map1<>.put (<v>key2<>, <v>value2<>);
+		<v>...<>
+	}<>
+
+
+Use a static block.
+There is no shortcut for 11 or more items.
+
+
+
+##### Map - Size
+
+<cb>= <v>map1<>.size()<>
+@
+@ Count, Length
+
+
+
+##### Map - Is Empty?
+
+<cb>= <v>map1<>.isEmpty()<>
+
+
+
+##### Map - Iterate Over Keys
+
+<cb>for (<v>Key<> <v>key<> : <v>map1<>.keySet()) {
+	<v>...<>
+}<>
+
+
+
+##### Map - Iterate Over Values
+
+<cb>for (<v>Value<> <v>value<> : <v>map1<>.values()) {
+	<v>...<>
+}<>
+
+
+
+##### Map - Iterate Over Key, Value Pairs
+
+<c>for (Map.Entry\<<v>Key<>,<v>Value<>> <v>entry<> : <v>map1<>.entrySet()) {
+	<v>Key<> <v>key<> = <v>entry<>.getKey();
+	<v>Value<> <v>value<> = <v>entry<>.getValue();
+}<>
+
+
+
+
+##### Map - Sort
+
+<cb>= new TreeMap\<<v>Key<>, <v>Value<>>(<v>map1<>)<>
+
+or
+
+<cb>Map\<<v>Key<>, <v>Value<>> <v>sortedMap<> = new TreeMap\<>(<v>comparator<>);
+<v>sortedMap<>.addAll(<v>map1<>);<>
+@
+@ Order
+
+
+
+##### Map - Union
+
+<cb><v>map1<>.putAll(<v>map2<>);<>
+
+Add all elements of <c><v>map2<><> to <c><v>map1<><>.
+@
+@ Put All, putAll, add all, addall, join
+
+
+
+##### Map - Intersection
+
+<cb><v>map1<>.keySet().retainAll(<v>map2<>.keySet());<>
+
+
+Keeps only those key values of <c><v>map1<><> that are in <c><v>map21<><>.
+Note: The keySet is backed by the map so changes made to the set are also made on the map.
+@
+@ retainAll
+
+
+
+##### Map - Subtraction
+
+<cb><v>map1<>.keySet().removeAll(<v>map2<>.keySet());<>
+
+
+Remove all key values from <c><v>map1<><> that are in <c><v>map2<><>.
+@
+@ Difference
+
+
+
+
+##### Map - To List
+
+<cb>= new ArrayList\<<v>Value<>>(<v>map1<>.values());<>
+@
+@ From
+
+
+
+#### Queue
+
+A collection that allows items to be handled in order.
+
+
+
+##### Queue Types
+
+Deque					Standard. A queue that allows appending and removing of items from either side.
+BlockingQueue			Thread Safe, Asychronous Queue
+
+
+
+#### Set
+
+<cb>Set\<<v>Type<>> <v>set1<> = new HashSet\<>();<>
+
+<cb>Set\<<v>Type<>> <v>set1<> = Set.of(
+		<v>value1<>,
+		<v>value2<>,
+		<v>...<>
+		);				<#>// 1.<><>
+
+Import:
+
+<cb>java.util.Set<>
+
+
+1.  <s>-<>  For Up To 10 Key Value Pairs.
+
+
+An unsorted collection of objects.
+No duplicates allowed.
+One null allowed.
+@
+@ Create, Define, Instantiate, New
+
+
+
+#### Set Types
+
+<c>HashSet<>			Standard Set, Not Thread Safe
+<c>LinkedHashSet<>	Ordered Set (Insert Order)
+<c>TreeSet<>			Sorted Set (Natural Order)
+
+Standard			<c>HashSet<>
+Ordered Set		<c>LinkedHashSet<>
+Sorted Set		<c>TreeSet<>
+Thread Safe		<c>Collections.synchronizedSet<>		<#>Set wrapper. Do not access wrapped set.<>
+
+Immutable List		None							<#>Consider Using Google Guava<>
+@
+@ Subtypes
+
+
+
+#### Set Operations
+@
+@ Ops
+
+
+
+##### Set - Contains?
+
+<c>= <v>set1<>.contains(<v>value1<>)<>
+
+
+
+##### Set - Contains Collection?
+
+<c>= <v>set1<>.containsAll(<v>collection1<>)<>
+
+
+
+##### Set - Add
+
+<c><v>set1<>.add(<v>value1<>);<>
+@
+@ Insert
+
+
+
+##### Set - Add All
+
+<c><v>set1<>.addAll(<v>set2<>);<>
+
+<c><v>set1<>.addAll(<v>collection1<>);<>
+@
+@ addAll, insert, join, collection
+
+
+
+##### Set - Duplicate
+
+<c>Set\<<v>Type<>> <v>set2<> = new HashSet\<>(<v>set1<>);<>
+
+
+Performs a shallow copy.
+@
+@ Copy
+
+
+
+##### Set - Remove
+
+<c><v>set1<>.remove(<v>value1<>);<>
+@
+@ delete
+
+
+##### Set - Remove All
+
+<c><v>set1<>.clear();<>
+@
+@ clear, delete, removeAll
+
+
+
+##### Set - Size
+
+<c>= <v>set1<>.size()<>
+@
+@ Count, Length
+
+
+
+##### Set - Is Empty?
+
+<c>= <v>set1<>.isEmpty()<>
+
+
+
+##### Set - Union
+
+<c><v>set1<>.addAll(<v>set2<>);<>
+
+<c><v>set1<>.addAll(<v>collection1<>);<>
+
+
+Add all elements of <c><v>set1<><> or <c><v>collection1<><> to <c><v>set2<><>.
+@
+@ Add All Collection, addAll, join
+
+
+
+##### Set - Intersection
+
+<c><v>set1<>.retainAll(<v>set2<>);<>
+
+<c><v>set1<>.retainAll(<v>collection1<>);<>
+
+
+Keeps only those elements of <c><v>set1<><> that are in <c><v>set2<><> or <c><v>collection1<><>.
+@
+@ retainAll
+
+
+
+##### Set - Subtraction
+
+<c><v>set1<>.removeAll(<v>collection1<>);<>
+@
+@ Difference
+
+
+
+##### Set - Iterate
+
+<c>for (<v>Type<> <v>item<> : <v>set1<>) {
+	<v>...<>
+}<>
+
+
+
+### Stack
+
+Legacy Class.
+
+Prefer <c>deque<>.
+
+
+
+### Common Types
+
+
+
+#### BigDecimal
+
+<c>BigDecimal <v>bigDecimal1<> = new BigDecimal(<v>value<>);
+
+
+<c><v>value<><> can be almost any standard numeric type or String.
+
+Arbitrary-precision signed decimal number.
+Immutable data type.
+@
+@ Currency, Big Decimal
+@ Create, Define, Instantiate, New
+
+
+
+#### BigDecimal Operations
+@
+@ Ops, Currency, Big Decimal
+
+
+
+##### BigDecimal - Set Scale
+
+<c>= <v>bigDecimal1<>.setScale (<v>decimalPlaces<>, <v>roundingConst<>)<>
+
+Creates a rounded or normalized version.
+
+
+
+##### BigDecimal - Add
+
+<c>= <v>bigDecimal1<>.add(<v>bigDecimal2<>)<>
+
+
+
+##### BigDecimal - Subtract
+
+<c>= <v>bigDecimal1<>.subtract(<v>bigDecimal2<>)<>
+
+
+
+##### BigDecimal - Multiply
+
+<c>= <v>bigDecimal1<>.multiply(<v>bigDecimal2<>)<>
+
+
+
+##### BigDecimal - Divide
+
+<c>= <v>bigDecimal1<>.divide(<v>bigDecimal2<>)<>
+
+
+
+##### BigDecimal - Is Equal
+
+<c>= <v>bigDecimal1<>.equals(<v>bigDecimal2<>)<>
+
+
+
+##### BigDecimal - Is Zero
+
+<c>= <v>bigDecimal1<>.equals(BigDecimal.ZERO)<>			<#>Tests For "0" Only<>
+												<#>All Other Values Return False Including "0.00"<>
+
+<c>= <v>bigDecimal1<>.compareTo(BigDecimal.ZERO)<>			<#>Tests For 0 At All Scales<>
+
+
+
+##### BigDecimal - Compare
+
+<c>= <v>bigDecimal1<>.compareTo(<v>bigDecimal2<>)<>
+
+
+
+##### BigDecimal - From String
+
+<c>BigDecimal <v>bigDecimal1<> = new BigDecimal(<v>stringValue<>);<>
+
+
+Example:
+
+<c>BigDecimal <v>bigDecimal1<> = new BigDecimal(<v>"10.95"<>);<>
+
+
+
+#### StringBuffer
+
+<c>StringBuffer <v>buffer1<> = new StringBuffer();
+
+<#>Prefer StringBuilder if thead safety is not needed.<>
+
+Thread safe mutable sequence of strings.
+Methods are synchronized.
+Default size is 16 characters.
+@
+@ Buffer
+@ Create, Define, Instantiate, New
+
+
+
+#### StringBuffer - Operations
+@
+@ Ops, Buffer
+
+
+
+##### StringBuffer - Append
+
+<c><v>buffer1<>.append(<v>value<>);<>
+@
+@ Concatenate, Add
+
+
+
+##### StringBuffer - From String
+
+<c>StringBuffer <v>buffer1<> = new StringBuffer(<v>string1<>)<>
+@
+@ Conversion, Convert, To
+
+
+
+##### StringBuffer - To String
+
+<c>String <v>string1<> = <v>buffer1<>.toString()<>
+@
+@ Conversion, Convert, From
+
+
+
+#### StringBuilder
+
+<c>StringBuilder <v>builder1<> = new StringBuilder();
+
+Not thread safe.
+Default size is 16 characters.
+@
+@ Builder
+@ Create, Define, Instantiate, New
+
+
+
+#### StringBuilder - Operations
+@
+@ Ops, Builder
+
+
+
+##### StringBuilder - Append
+
+<c><v>builder1<>.append(<v>value<>);<>
+@
+@ Concatenate, Add
+
+
+
+##### StringBuffer - From String
+
+<c>StringBuilder <v>builder1<> = new StringBuilder(<v>string1<>)<>
+@
+@ Conversion, Convert, To
+
+
+
+##### StringBuilder - To String
+
+<c>String <v>string1<> = <v>builder1<>.toString()<>
+@
+@ Conversion, Convert, From
+
+
+
+#### UUID
+
+<c>UUID <i>uuid1<> = UUID.randomUUID();<>
+<c>UUID <i>uuid1<> = UUID​(<v>mostSigBits<>, <v>leastSigBits<>);<>
+@
+@ GUID
+@ Create, Define, Instantiate, New
+
+
+
+#### UUID - Operations
+
+
+##### UUID - From String
+
+<c>UUID <v>uuid1<> = UUID.fromString("<v>17a3bdb6-8c93-4e94-9567-a4933563ba92<>");<>
+@
+@ Convert, Conversion, To, Parse
+
+
+
+##### UUID - To String
+
+<c>String <v>string1<> = <v>uuid1<>.toString();<>
+@
+@ Convert, Conversion, From
+
+
+
+# Control Statements
+
+
+
+## Do While
+
+<cb>do {
+	<v>...<>
+}
+while(<v>condition<>);<>
+
+
+<cb>do {
+	<v>...<>
+	continue;									<#>// Continue to <v>condition<>.<>
+	<v>...<>
+	break;										<#>// Exit while loop<>
+}
+while(<v>condition<>)<>
+
+
+
+## If
+
+<cb>if (<v>condition1<>) {
+	<v>...<>
+}<>
+
+
+<cb>if (<v>condition1<>) {
+	<v>...<>
+}
+else if (<v>condition2<>) {
+	<v>...<>
+}
+else {
+	<v>...<>
+}<>
+@
+@ else elif
+
+
+
+## If - Inline If
+
+Ternary / Conditional Operator:
+
+<cb>= <v>expression<> ? <v>true_value<> : <v>false_value<><>
+
+
+Example:
+
+<!>Expand Example<>
+
+<cb>= (<v>a<> > <v>b<>) ? <v>a<> : <v>b<><>
+@
+@ IIF
+@ Ternary conditional operator
+
+
+
+## For
+
+<cb>for (<v>initialize<>; <v>condition<>; <v>update<>) {
+	<v>...<>
+}<>
+
+
+<cb>for (<v>initialize<>; <v>condition<>; <v>update<>) {
+	<v>...<>
+	continue;									<#>// Continue on next value<>
+	<v>...<>
+	break;										<#>// Exit for loop<>
+}<>
+
+
+Example:
+
+<cb>for (int i = 0; i \< 10; i++) {
+	System.out.print(i);
+}<>
+@
+@ Loop
+
+
+
+## For - Enhanced For (For Each)
+
+<cb>for (<v>Class1<> <v>item<> : <v>items<>)  {
+	<v>...<>
+}<>
+
+
+<cb>for (<v>Class1<> <v>item<> : <v>items<>)  {
+	<v>...<>
+	continue;									<#>// Continue on next value<>
+	<v>...<>
+	break;										<#>// Exit for loop<>
+}<>
+
+Loops through eath item in items.
+<c><v>items<><> must be an array or type that implements <c>Iterable<>.
+@
+@ Loop, ForEach, In
+
+
+
+## Switch
+
+<cb>switch (<v>expression<>) {
+
+  case <v>value1<>:
+    <v>...<>
+    break;										<#>// Exit Switch Statement<>
+
+  case <v>value2<>:
+    <v>...<>
+    <#>// Falls through to (continues on) next case block...<>
+
+  case <v>value3<>:
+    <v>...<>
+    break;
+
+  default:
+    <v>...<>
+}<>
+
+<c><v>expression<><> must return an integer or character.
+
+
+
+## While
+
+<cb>while(<v>condition<>) {
+	<v>...<>
+}<>
+
+
+<cb>while(<v>condition<>) {
+	<v>...<>
+	continue;									<#>// Continue to <v>condition<>.<>
+	<v>...<>
+	break;										<#>// Exit while loop<>
+}<>
+
+
+
+## Break With Label
+
+<cb><v>label1<>:
+	for (<v>...<>) {
+		for (<v>...<>) {
+			if (<v>...<>) {
+				break <v>label1<>					<#>// Exit Out of <v>label1<> Section<>
+			}
+		}
+	}
+
+<#>// Execution continues here...<><>
+
+Note: <!>Not recommended.<>
+Use a separate method with a return statement instead.
+
+
+
+# Error Handling
+@
+@ Exceptions
+
+
+### Exceptions - Usage
+
+
+#### Exception - Define
+
+<c>public class <v>ExceptionName<> extends RuntimeException {
+	...
+}<>
+@
+@ Create, New
+
+
+
+#### Exception - Throw
+
+<>throw new <v>Exeption1<>();<>
+@
+@ Raise, New, Create, Instantiate
+
+
+
+#### Exception - Pass Checked Exception
+
+<c>public void <v>someMethod1<>() throws <v>Exception1<>, <v>Exception2<>, <v>...<> {
+	...<><>
+
+
+Defines the exception that may be returned by a method.
+Only required for checked exceptions.
+@
+@ Declare
+
+
+
+#### Exception - Catch - Basic
+
+<c>try {
+	<v>...<>
+}
+catch (<v>Exception1<> <v>e<>) {
+	<v>...<>
+}
+@
+@ Try Catch
+@ Handle
+
+
+
+#### Exception - Catch - Full
+
+<c>try {
+	<v>...<>
+}
+catch (<v>Exception1<> <v>e<>) {
+	<v>...<>
+}
+catch (<v>Exception2<> | <v>Exception3<> | <v>...<> <v>e<>)				<#>// 1<>
+	<v>...<>
+}
+catch (Exception <v>e<>) {								<#>// 2<>
+	<v>...<>
+}
+finally {											<#>// 3<>
+	<v>...<>
+}<>
+
+
+<#>1. This syntax is supported by Java 1.7 or higher.<>
+
+<#>2. Catches remaining unhandled exceptions.<>
+
+<#>3. Always executes whether there is an exception or not.<>
+@
+@ Try Catch
+@ Handle
+
+
+
+#### Exception - Stack Trace - Get
+
+<c>StackTraceElement[] stackTrace = <v>exception1<>.getStackTrace();<>
+
+
+
+#### Exception - Stack Trace - Print
+
+<c><v>exception1<>.printStackTrace();<>
+
+
+Prints to standard out.
+
+
+
+### Exceptions - Types
+
+Throwable			The Superclass For All Exceptions
+Exception			A Condition That Should Reasonably Be Handled Programatically
+RuntimeException		A Condition That Shound NOT Be Handled Programatically
+Error				A Very Serious Condition. Shut Your Server Down, Call The Rescue Squad!
+
+
+
+#### Exception Type - Throwable
+
+<c>Throwable<>
+
+The superclass of all other exceptions.
+Only <c>Throwable<> classes can be caught in <c>try / catch<> blocks.
+
+
+
+#### Exception Type - Exception (Checked)
+
+<c>Exception<>
+
+A condition that should reasonably be handled programatically.
+These exceptions are checked and methods are forced to declare them in the method signature.
+
+<#>Recommendation: Use RuntimeExceptions only.<>
+
+Checked exception.
+@
+@ Checked
+
+
+
+#### Exception Type - RuntimeException (Unchecked)
+
+<c>RuntimeException<>
+
+This is reserved for exceptions that can or should not be handled by the program.
+However recently, many frameworks have been favoring RuntimeException even for handlable exceptions.
+
+<#>Recommendation: Use RuntimeExceptions only.<>
+
+This type is unchecked.
+@
+@ Unchecked
+
+
+
+#### Exception Type - Error
+
+This is reserved for the worst errors such as out of disk space or data corruption.
+The only course of action is to stop the application and call for help.
+
+Errors are unchecked.
+@
+@ Unchecked
+
+
+
+### Exceptions - Standard Exceptions
+
+
+
+#### Exceptions - Standard Checked Exceptions
+
+<c>ClassNotFoundException
+CloneNotSupportedException
+FileNotFoundException
+InstantiationException
+InterruptedException
+IOException
+NoSuchMethodException
+ParseException
+NoSuchFieldException<>
+
+
+These inherit from <c>Exception<>.
+@
+@ ClassNotFoundException, CloneNotSupportedException, FileNotFoundException, InstantiationException, InterruptedException, IOException, NoSuchMethodException, ParseException, NoSuchFieldException
+
+
+#### Exceptions - Standard Unchecked Exceptions
+
+<c>ArrayIndexOutOfBoundsException
+AssertionError
+ClassCastException
+ExceptionInInitializerError
+IllegalArgumentException
+IllegalStateException
+NoClassDefFoundError
+NullPointerException
+NumberFormatException
+StackOverflowError
+UnsupportedOperationException<>
+
+
+These inherit from <c>RuntimeException<>.
+@
+@ ArrayIndexOutOfBoundsException, AssertionError, ClassCastException, ExceptionInInitializerError, IllegalArgumentException, IllegalStateException, NoClassDefFoundError, NullPointerException, NumberFormatException, StackOverflowError, UnsupportedOperationException
+
+
+
+# Auto Close Resource
+@
+@ auto closeable, autocloseable, try with
+
+
+### Auto Close Resource - Define
+
+<cb>class <v>ResourceClass1<> implements AutoCloseable {
+	
+	<v>...<>
+
+	@Override
+	public void close() {
+		<v>...<>
+	}
+}<>
+
+
+Implement interface <c>AutoCloseable<>.
+Override method <c>close()<>.
+
+<c>close<> will be called when exiting the try block.
+@
+@ Create, New, __enter__, __exit__
+
+
+
+### Auto Close Resource - Use
+
+<cb>try <v>ResourceClass1<>() <v>resource1<> = new <v>ResourceClass1<>() {
+    <v>...<>
+}<>
+
+
+Reference the resource with <c><v>resource1<><>.
+<c><v>resource1<><> is automatically closed at the end of the try block.
+
+Also called 'Try with Resource'.
+@
+@ Create, New, with, Instantiate
+
+
+
+# Streams
+
+
+## Streams - General Form
+
+<cb><v>collection1<>.stream().<v>transform1()<>.<v>transform2()<>.<v>...<>.<v>aggregate1()<>;<>
+
+Example:
+
+<cb><v>items<>.stream().foreach(<v>item<>::<v>toString<>);<>
+
+
+
+## Streams - Transformation Functions
+
+Use in the Form:
+
+<cb><v>collection1<>.stream().<v>transformation<>()<>
+
+<table><col><b>Transformation<><>
+<col> <>
+<col><c>.distinct()<><>					<col>Removes duplicates.<>
+<col><c>.filter(<v>p<> -> <v>condition<>)<><>
+<col><c>.flatMap(<v>...<>)<><>					<col>Creates streams, substreams, then flattens them.<>
+<col><c>.limit(<v>count<>)<><>					<col>Limits the number of elements processed.<>
+<col><c>.map(<v>p<> -> <v>newValueExpression<>)<><>
+<col><c>.map(<v>p<>::<v>methodReturningValue<>)<><>
+<col><c>.mapToDouble(<v>p<> -> <v>newValueExpression<>)<><>
+<col><c>.mapToInt(<v>p<> -> <v>newValueExpression<>)<><>
+<col><c>.mapToLong(<v>p<> -> <v>newValueExpression<>)<><>
+<col><c>.mapToObject(<v>p<> -> <v>newValueExpression<>)<><>
+<col><c>.range(<v>from<>, <v>toPlusOne<>)<><>	<col>Reduce to items from position <c><v>from<><> to before <c><v>toPlusOne<><>.<>
+<col><c>.rangeClose(<v>from<>, <v>to<>)<><>		<col>Reduce to items from positions <c><v>from<><> to <v><v>to<><> inclusive.<>
+<col><c>.sorted()<><>							<col>Returns natural sort order.<>
+<col><c>.sorted(<v>itemComparator<>)<><><>
+
+
+
+## Streams - Aggregation Functions
+
+Use in the Form:
+
+<cb><v>collection1<>.stream().<v>aggregation<>()<>
+
+<table><col><c>.collect(Collectors.<v>collectorType<>())<><>
+<col><c>.forEach(<v>p<> -> <v>method1<>(<v>p<>))<><>
+<col><c>.forEach(<v>method1<>)<><><col><c><v>p<><> is passed in by default<>
+<col> <>
+<col><c>.average()<><>
+<col><c>.count()<><>
+<col><c>.max()<><>
+<col><c>.min()<><>
+<col><c>.sum()<><>
+<col> <>
+<col><c>.findAny()<><>
+<col><c>.findFirst()<><><>
+
+
+
+## Stream - Details
+
+
+### Aggregate Stream - Average
+
+<cb>= <v>collection1<>.stream().average();<>
+@
+@ .stream().average(), .average()
+
+
+
+### Aggregate Stream - Count
+
+<cb>= <v>collection1<>.stream().count();<>
+@
+@ .stream().count(), .count()
+
+
+
+### Aggregate Stream - Min
+
+<cb>= <v>collection1<>.stream().min();<>
+@
+@ minimum, .stream().min(), .min()
+
+
+
+### Aggregate Stream - Max
+
+<cb>= <v>collection1<>.stream().max();<>
+@
+@ maximum, .stream().max(), .max()
+
+
+
+### Aggregate Stream - Sum
+
+<cb>= <v>collection1<>.stream().sum();<>
+@
+@ total, summation, .stream().sum(), .sum();
+
+
+
+### Stream - Operation - foreach
+
+<cb><v>collection1<>.stream().foreach(<v>Type<>::<v>typeMethod<>)<>
+
+Returns: <c>void<>
+
+Calls the method immediately.
+Results are not saved.
+
+
+
+### Transform Stream - Filter
+
+<cb>= <v>collection1<>.stream().filter(<v>checkFunction<>);<>
+
+<cb>= <v>collection1<>.stream().filter(<v>p<> -> <v>check code<>);<>
+
+
+The checking function should return false for elements to be filtered out.
+@
+@ .stream().filter(), .filter()
+
+
+
+### Transform Stream - Limit
+
+<cb>= <v>collection1<>.stream().limit(<v>count<>);<>
+
+
+Limits the number of items in the stream.
+Returns <c><v>count<><> items.
+@
+@ .stream().limit(), .limit()
+
+
+
+### Transform Stream - Map
+
+<cb>= <v>collection1<>.stream().map(<v>mappingFunction<>);<>
+
+<cb>= <v>collection1<>.stream().map(<v>p<> -> <v>mapping code<>);<>
+@
+@ stream().map, .map()
+
+
+
+### Transform Stream - Map To Double Stream
+
+<cb>= <v>collection1<>.stream().mapToDouble(<v>mappingFunction<>);<>
+
+<cb>= <v>collection1<>.stream().mapToDouble(<v>p<> -> <v>mapping code<>);<>
+@
+@ stream().mapToDouble, .mapToDouble()
+
+
+
+### Transform Stream - Map To Int Stream
+
+<cb>= <v>collection1<>.stream().mapToInt(<v>mappingFunction<>);<>
+
+<cb>= <v>collection1<>.stream().mapToInt(<v>p<> -> <v>mapping code<>);<>
+@
+@ stream().mapToInt, .mapToInt(), integer
+
+
+
+### Transform Stream - Map To Long Stream
+
+<cb>= <v>collection1<>.stream().mapToLong(<v>mappingFunction<>);<>
+
+<cb>= <v>collection1<>.stream().mapToLong(<v>p<> -> <v>mapping code<>);<>
+@
+@ stream().mapToLong, .mapToLong()
+
+
+
+### Transform Stream - Map To Object Stream
+
+<cb>= <v>collection1<>.stream().mapToObject(<v>mappingFunction<>);<>
+
+<cb>= <v>collection1<>.stream().mapToObject(<v>p<> -> <v>mapping code<>);<>
+@
+@ stream().mapToObject, .mapToObject()
+
+
+
+### Transform Stream - Subset / Range
+
+<cb>= <v>collection1<>.stream().range(<v>from<>, <v>toPlusOne<>);<>
+
+Returns all items in the stream starting from position <c><v>from<><>, including all items up to the position before <c><v>toPlusOne<><>.
+@
+@ .stream().range(), .range()
+
+
+
+### Transform Stream - Subset / RangeClose
+
+<cb>= <v>collection1<>.stream().rangeClose(<v>from<>, <v>to<>);<>
+
+Returns all items in the stream starting from position <c><v>from<><>, including all items up to the position <c><v>to<><> inclusive.
+@
+@ .stream().rangeClose(), .rangeClose()
+
+
+
+### Transform Stream - To Collection
+
+<cb>= <v>collection1<>.stream().collect(Collectors.<v>toCollectorType<>());<>
+
+Collectors:
+
+<cb>collector.toMap(<v>...<>, <v>...<>)
+collector.toList()
+collector.toSet()<>
+
+
+Example:
+
+<m>(Incomplete)<>
+
+<card>List<String> = <v>items<>.filter(<v>Item<>::<v>toString<>).collect(Collectors.toList());<>
+
+Items items2 = items.stream().filter (p -> p.getValue > 50).collect (Collectors.toList());
+
+
+
+# Math Library
+@
+@ maths, java.lang.Math
+
+
+
+### Absolute Value
+
+<cb>import static java.lang.Math.abs;
+
+= abs(<v>value<>)<>
+@
+@
+@ double, float, int, long
+
+
+
+### Power
+
+<cb>import static java.lang.Math.pow;
+
+<v>...<>
+= pow(<v>base<>, <v>exponent<>)<>
+
+takes doubles.
+returns double.
+@
+@ double, float, int, long, **, Power Of
+
+
+
+# Files
+
+
+
+## File Operations
+@
+@ file-only, files-only
+
+
+
+### File - Get Size
+
+<cb>= Files.size(<v>filePath<>)<>
+
+Import:
+
+<cb>import java.nio.file.Files;<>
+@
+@ Files.size()
+
+
+
+## File Manipulation
+
+
+
+### Binary File - Read
+		
+<cb>byte[] <v>contents<> = Files.readAllBytes(Paths.get(<v>filePath<>));<>
+
+Imports:
+
+<cb>import java.nio.file.Files;
+import java.nio.file.Paths;<>
+
+Throws:
+
+<cb>java.io.IOException<>
+@
+@ Files.readAllBytes()
+
+
+
+### Binary File - Read By Byte
+		
+<cb>try (InputStream <v>stream<> = new FileInputStream(<v>filePath<>)) {
+	while(true) {
+		int <v>next<> = <v>stream<>.read();		<#>// 1.<>
+		if (<v>next<> == -1) break;			<#>// 2.<>
+		
+		<v>...<>
+	}
+}<>
+
+Imports:
+
+<cb>import java.io.FileInputStream;
+import java.io.InputStream;<>
+
+Returns: <c>int<>
+Throws: <c>java.io.IOException<>
+
+
+1.  <s>-<>	Reads the next byte into <v><c>next<><>.
+	The byte is returned as an int.
+
+2.  <s>-<>	Exit when the end of file is reached.
+
+
+Reads byte at a time but returns that byte as an int.
+@
+@ Files.readAllBytes()
+
+
+
+### Text File - Read
+
+<cb>String <v>contents<> = FileUtils.readToString(<v>filePath<>);<>
+
+<cb>String <v>contents<> = FileUtils.readToString(<v>filePath<>, <v>charset<>);<>
+
+Imports:
+
+<cb>import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;<>
+
+Returns: <c>String<>
+Throws: <c>IOException<>
+
+
+Reads a text file to a string.
+Default character set is UTF-8.
+
+
+Examples:
+
+Read UTF-8 File (Default):
+
+<cb>import java.nio.file.Files;
+import java.nio.file.Path;
+
+
+try {
+	String <v>contents<> = Files.readString(Path.of(<v>filePath<>));
+}
+catch (IOException e) {
+	<v>...<>
+}<>
+
+Read ASCII File:
+
+<cb>import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+
+try {
+	String <v>contents<> = Files.readString(Path.of(<v>filePath<>), Charset.forName("<v>ASCII<>"));
+}
+catch (IOException e) {
+	<v>...<>
+}<>
+@
+@ files.readstring(), to string, to text
+
+
+
+
+### Text File - Read All Lines
+
+<cb>List\<String> <v>lines<> = FileUtils.readAllLines(<v>filePath<>);<>
+
+<cb>List\<String> <v>lines<> = FileUtils.readAllLines(<v>filePath<>, <v>charset<>);<>
+
+Imports:
+
+<cb>import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+import java.util.List;<>
+
+Returns: <c>List\<String><>
+Throws: <c>IOException<>
+
+
+Reads a text file to a string.
+Default character set is UTF-8.
+
+
+Examples:
+
+Read UTF-8 File (Default):
+
+<cb>import java.nio.file.Files;
+import java.nio.file.Path;
+
+import java.util.List;
+
+
+try {
+	List\<String> <v>lines<> = Files.readAllLines(Path.of(<v>filePath<>));
+}
+catch (IOException e) {
+	<v>...<>
+}<>
+
+Read ASCII File:
+
+<cb>import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+import java.util.List;
+
+
+try {
+	List\<String> <v>lines<> = Files.readAllLines(Path.of(<v>filePath<>), Charset.forName("<v>ASCII<>"));
+}
+catch (IOException e) {
+	<v>...<>
+}<>
+@
+@ files.readAllLines(), to string list, to text list
+
+
+
+
+### Text File - Read By Character
+		
+<cb>try (InputStreamReader reader = new FileReader(<v>filePath<>, StandardCharsets.<v>encoding<>)) {
+	while(true) {
+		int <v>next<> = <v>reader<>.read();		<#>// 1.<>
+		if (<v>next<> == -1) break;			<#>// 2.<>
+		
+		<v>...<>
+	}
+}<>
+
+Imports:
+
+<cb>import java.io.InputStreamReader;
+import java.io.FileReader;
+import java.nio.charset.StandardCharsets;<>
+
+Throws:
+
+<cb>java.io.IOException<>
+
+
+1.  <s>-<>	Reads the next character into <v><c>next<><>.
+	Characters are returned as ints.
+
+2.  <s>-<>	Exit when the end of file is reached.
+
+
+Why:
+
+Why use <c>InputStreamReader<>?
+You could use FileReader instead but this sets up the ability to switch to a different input reader.
+This can be useful, especially for testing.
+
+
+Example:
+
+<cb>import java.io.InputStreamReader;
+import java.io.FileReader;
+import java.nio.charset.StandardCharsets;
+
+
+try (InputStreamReader <v>reader<> = new FileReader(<v>"my-utf8-file.txt"<>, StandardCharsets.UTF-8)) {
+	while(true) {
+		int <v>next<> = <v>reader<>.read();
+		if (<v>next<> == -1) break;
+		if (<v>next<> == 65279) continue;					<#>// 1.<>
+		System.out.print (Character.toString(<v>next<>));	<#>// 2.<>
+	}
+}<>
+
+1.  <s>-<>	Ignore the Byte Order Marker (BOM) if present.
+
+2.  <s>-<>	Convert int value into string and print.
+@
+@ Files.readAllBytes()
+
+
+
+# Functional Interfaces
+
+
+
+### Function - No Args, No Return
+
+Interface:
+
+<cb>Runnable\<<v>T<>><>
+
+Method:
+
+<cb>.run()<>
+
+<cb><v>T<> <v>newItem<> = <v>runnable1<>.run()<>
+@
+@ Runnable(), .run()
+
+
+
+### Function - No Args, Returns val.
+
+Interface:
+
+<cb>Callable\<<v>R<>><>
+
+Method:
+
+<cb>.run()<>
+
+<cb><v>T<> <v>newItem<> = <v>runnable1<>.run()<>
+
+<c><v>R<><> - Return Type
+
+
+Return <c>Callable\<<v>R<>><>:
+
+<cb>= () -> new <v>ReturnType<>()<>
+
+
+Method Parameter:
+
+<cb><v>method1<>(Callable\<<v>ReturnType<> <v>function1)<v>...<><><>
+@
+@ Runnable(), .run()
+
+
+
+### Function - 1 Arg, Returns val.
+
+<cb>Function\<<v>ParamType<>, <v>ReturnType<>> <v>function1<> = (<v>a<>) -> {<v>...<>};<>
+
+<cb><v>ReturnType<> <v>result<> = <v>function1<>.apply(<v>a<>);<>
+
+
+
+### Function - 2 Args, Returns val.
+
+<cb>BiFunction\<<v>Param1Type<>, <v>Param2Type<>, <v>ReturnType<>> <v>function1<> = (<v>a<>, <v>b<>) -> {<v>...<>};<>
+
+<cb><v>ReturnType<> <v>result<> = <v>function1<>.apply(<v>a<>, <v>b<>);<>
+
+
+
+### Object - Do Action
+
+Interface:
+
+<cb>Consumer\<<v>T<>><>
+
+Method:
+
+<cb>.accept(<v>T<> <v>t<>)<>
+
+<cb><v>consumer1<>.accept(<v>t<>)<>
+@
+@ Consumer(), .accept(), execute
+
+
+
+### Object - Factory
+
+Interface:
+
+<cb>Supplier\<<v>T<>><>
+
+Method:
+
+<cb>.get()<>
+
+<cb><v>T<> <v>newItem<> = <v>supplier1<>.get()<>
+@
+@ Supplier(), .get()
+
+
+
+### Object - Test Properties
+
+Interface:
+
+<cb>Predicate\<<v>T<>><>
+
+Method:
+
+<cb>.test(<v>T<> <v>t<>)<>
+
+<cb>boolean <v>isMatch<> = <v>predicate1<>.test(<v>t<>)<>
+@
+@ Predicate(), .test()
+
+
+
+### Object - Transform
+
+Interface:
+
+<cb>Function\<<v>T<>, <v>R<>><>
+
+Method:
+
+<cb>.apply(<v>T<> <v>t<>)<>
+
+<cb><v>R<> <v>result<> = <v>function1<>.apply(<v>t<>)<>
+@
+@ Function(), .apply()
+
+
+
+# How To
+
+
+
+### Application - Runtime - Icon
+
+<cb>java <v>...<> -Xdock:name="<v>Application Name<>"<>
+
+
+
+
+### Application - Runtime - Name
+
+<cb>java <v>...<> -Xdock:name="<v>Application Name<>"<>
+
+
+
+
+### Class - Name - Base Name
+
+<cb>= <v>instance1<>.getClass().getSimpleName()<>
+
+
+
+
+### Class - Check Type
+
+<cb>= <v>item1<> instanceof <v>Class2<><>
+
+or
+
+<cb>= <v>item2<>.isInstance(<v>item1<>)<>
+
+
+
+### Environment Variable
+
+<cb>= System.getenv(<v>name<>)<>
+
+
+Returns the value of the environment variable named <c><v>name<><>.
+
+
+
+### File - ClassPath - Find
+
+File URL:
+
+<cb>URL <v>url<> = this.getClass().getResource("<v>/path/file_name.ext<>");<>
+
+As Input Stream:
+
+<cb>InputStream in = this.getClass().getResourceAsStream("<v>/path/file_name.ext<>");<>
+
+See Also: Java Help -> Snippets
+
+
+
+### File - File Separator
+
+<cb>= File.separator<>
+
+Import:
+
+<cb>import java.io.File;<>
+
+
+Returns the OS specific <c>/<> or <c>\\<> file separator.
+@
+@ \\, /, path
+
+
+
+### File - Path Separator
+
+<cb>= File.pathSeparator<>
+
+Import:
+
+<cb>import java.io.File;<>
+
+
+Returns the OS specific <c>:<> or <c>;<> path separator.
+@
+@ :, ;
+
+
+
+### Iterator - Implement
+
+<cb>class <v>IterableClass<> implements Iterable {
+
+	<v>...<>
+
+	@Override
+	public Iterator\<<v>IterableClass<>> iterator() {
+		<v>...<>
+		return <v>newIterator<>;
+	}
+}<>
+
+
+Implement <c>Iterable<> interface.
+Overrride <c>iterator()<>.
+
+Allows the class to be used anywhere an iterable can be used (e.g. in a for each statement).
+
+
+
+### Java Docs - Create
+
+<cb>javadoc -d <v>target_doc_dir<> -sourcepath <v>source_dir<> -subpackages <v>com.source.package<><>
+
+
+
+### Random - Int
+
+<cb>Random random = new Random();
+
+= random.nextInt(<v>max<> + 1);<>
+
+Import:
+
+<cb>import java.util.Random;<>
+@
+@ Integer
+
+
+
+### Thread - Start
+
+Define:
+
+<cb>class <v>RunnableClass1<> implements Runnable {
+
+	public void run() {
+		<v>...<>
+	}
+}<>
+
+Start:
+
+<cb>new Thread(new <v>RunnableClass1<>()).start();<>
+
+
+Implement <c>Runnable<>.
+Override <c>run()<>.
+Start with <c>new Thread (<v>...<> .start())<>.
+
+		
+
+### Time - Milliseconds
+
+<cb>= System.currentTimeMillis()<>
+
+
+Accurate, Thread Safe, Correct Time.
+
+
+
+### Time - Nanoseconds
+
+<cb>= System.nanoTime()<>
+
+
+Not thread safe, not consistent between threads, only good for relative measurements (no actual clock time).
+Also relatively expensive (100 + cpu cycles vs 5-6 for System.currentTimeMillis()
+
+
+
+# Releases Summary
+
+Java Releases Wiki:
+<l>https://en.wikipedia.org/wiki/Java_version_history<>
+@
+@ Versions
+
+
+### Java 7
+
+Switch Statements
+- Takes Strings
+
+Try Catch
+- Auto Close Resources (auto close file)
+
+Try Catch
+- More Precise Rethrow
+
+Try Catch
+- Multi Catch
+
+Data Types
+- Binary integral Literals (0b10100101)
+
+Data Types
+- Literals can have underscores for clarity (100_000_000)
+
+Generics
+- Reduced boiler plate (new item\<>() instead of new item<List<String>>())
+
+IO
+- Added APIs
+
+
+### Java 8
+
+Released:	2014 March
+
+Support:	2030 December
+
+Collection Factory Methods
+- List<String> strings = List.of ("String 1", "String 2"...)
+
+Dates
+- New Date API
+
+Interface Default Methods
+
+JVM Javascript Engine
+- Includes java script engine Nashorn.
+
+Lamda Expressions
+- Now has lambda support
+- (args) -> { some code; return value}
+
+Math
+- Exact Numeric Operations
+- Handle overflow edge cases.
+- Math.multiplyExact (bigA, bigB)
+
+Math
+- New secure random number generator.
+- SecureRandom.getInstanceStrong()
+
+Multi Threading
+- Parallel Sorting
+
+Multi Threading
+- Stamped Locks
+- Much faster than old locks but a bit more work.
+
+Multi Threading
+- Concurrent Adders
+
+Null Pointer Handling
+- new Optional reference
+- Optional <T>, isPresent(), ifPresent()
+
+Optional Class Improvements
+- ifPresent(), ifPresentOrElse(), or, stream()
+
+Streaming API Improvements
+- takeWhile(), dropWhile(), limit(), skip()
+
+Stream Collections
+- Powerful tools to manipulate streams.
+@
+@ Major Release
+
+
+### Java 9
+
+Released:	2017 September
+
+Collections - Immutable Set
+
+HTTP Client
+- New Http API
+- java.net.http
+- Supports HTTP/2, WebSocket
+
+Http Get Request
+- HttpRequest = HttpRequest.newBuilder()...GET().build()
+
+Inner Class Diamond Operator (Generics)
+
+Interfaces - Private Methods
+- Used to split default methods.
+
+Java REPL
+- JShell
+
+Logging Framework Update
+- Unified logging system for all JVM components.
+
+Modular System
+- Jigsaw
+
+Optional Streams
+
+Process API
+- API to control operating system processes
+
+Pub-Sub Framework
+
+Try With Resource Enhancement
+- Some special handling that doesn't require a variable for resource.
+
+
+### Java 10
+
+Released:	2018 March
+
+Certificates - Root Certificates
+
+Collections - Unmodifiable (Immutable) Collections
+- copyOf()
+- toUnmodifiable()
+
+JVM - Docker Awareness
+- Linux Only
+
+Optional - orElseThrow()
+
+Performance Improvements
+
+Var
+- Local type inferencing.
+- var datetime = LocalDateTime.now();
+
+
+### Java 11
+
+Released:	2018 September
+
+Support:	2026 September
+
+Removed
+- Applet Deployment Stack
+- Supported Browsers removed from list of supported configs.
+- JRE Auto-Update removed from JRE
+- JavaFX, Java Mission Control - now separate downloads
+- Removed language support - French, German, Italian, Korean, Portuguese, Spanish, Swedish.
+- No JRE, JRE Server. Only JDK
+- JEE Libraries
+- Corba Libraries
+
+Date Time
+- TimeUnit conversions
+- TimeUnit.DAYS | MONTHS | YEARS
+
+File Methods
+- isSameFile()
+-readString
+- writeString()
+
+Garbage Collector Enhancements
+- Epsilon Garbage Collector
+- Used for performance ,memory pressure tests.
+
+JEE Libraries - REMOVED
+
+Optional.isEmpty()
+
+Patterns
+- match PRedicate()
+
+String.isBlank()
+String.lines()
+- Returns a collection of lines split on newline.
+String.repeat()
+String.strip()
+String.stripTrailing()
+- Remove trailing white spaces
+@
+@ Major Release
+
+
+### Java 12
+
+Released:	2019 March
+
+Small Update
+ Default Class Data-Sharing Archives
+
+Garbage Collector Tweaks
+
+JVM Constants API
+
+Switch Statements
+- "->" notation eliminates need for break;.
+- Can return a value.
+- - var int1 = switch (itemValue) { case 1 -> 10; case 2 -> 20; default -. 30 }
+
+
+### Java 13
+
+Released:	2019 September
+
+Class-Data Sharing (CDS) for startup performance improvements
+Garbage Collector - Uncommit Unused Memory
+
+Previews:
+
+Switch Expression
+Text Blocks
+
+
+### Java 14
+
+Released: 2020 March
+
+instanceof Pattern Matching
+Switch Expressions
+Event Streams
+Helpful NullPointerExceptions
+Records (data class) (final, not abstract, fields final too)
+
+	record Point(int x, int y) { }
+
+Incubator:
+
+Non-volatile Mapped Byte Buffers
+Packaging Tool
+	Linux, Windows, MacOS
+Text Blocks
+
+
+### Java 15
+
+
+
+### Java 16
+
+
+
+### Java 17
+
+Released:	2021 September
+
+Support:	2030 September
+@
+@
+@ Major Version
+
+
+
+
+
+
+# Acronyms
+
+
+
+### CDI
+Context Dependency Injection
+
+
+
+### CDS
+Class-Data Sharing
+
+
+
+### DTO
+Data Transfer Object
+
+
+
+### EAR
+Enterprise Archive File 
+
+
+
+### EJB
+Enterprise JavaBeans
+
+
+
+### GC
+Garbage Collection
+
+
+
+### GUID
+Global Unique Identifier
+
+
+
+### JAR
+Java Archive File
+
+
+
+### JAX-RPC
+Javax Remote Procedure Call. Renamed Java-WS
+
+
+
+### JAX-RS
+Javax Restful Service Library
+
+
+
+### JAX-WS
+Javax Web Services library. Used to be JAX-RPC. Includes XML/HTTP, SOAP/HTTP
+
+
+
+### JAXB
+Javax XML Binding Library
+
+
+
+### JCE
+Java Cryptography Extension
+
+
+
+### JCL
+Java Class Library
+
+
+
+### JEE
+Java Enterprise Edition
+
+
+
+### JIT
+Just In Time (Compiler)
+
+
+
+### JMS
+Java Messaging Service
+
+
+
+### JMX
+Java Management Extension
+
+
+
+### JNDI
+Java Naming and Directory Interface
+
+
+
+### JPA
+Java Persistence API
+
+
+
+### JSP
+JavaServer Pages
+
+
+
+### JTA
+Java Transaction API
+
+
+
+### JUL
+Java Util Logger
+
+
+
+### MAT
+Memory Analyzer
+
+See: JMX Tools
+
+
+
+### NIO
+Non-blocking IO
+
+
+
+### POM
+Maven Project Object Model
+
+
+
+### StAX
+Streaming API for XML
+
+
+
+### XSD
+XML Schema Document
+
+
+
+### WAR
+Web Archive File
+
+
+
+### WSDL
+Web Service Definition Language
+
+
+
+# Glossary
+@
+@ Terms, terms-only
+
+
+
+### Accessors
+The getter methods on a class that return property values.
+
+
+
+### Annotations
+Annotations are used to describe elements and clarify their purpose. These annotations are then used by other code to inspect the annotated code and provide additional functionality.
+Annotations are identified with the '@' symbol.
+
+Uses:
+Describe constraints or usage to an element: e.g. <c>@Deprecated<>, <c>@Override<>, or <c>@NotNull<>
+Describe the "nature" of an element, e.g. <c>@Entity<>, <c>@TestCase<>, <c>@WebService<>
+Describe the behavior of an element: <c>@Statefull<>, <c>@Transaction<>
+Describe how to process the element: <c>@Column<>, <c>@XmlElement<>
+
+
+
+### Application Class Loader
+The application class loader loads all the standard java classes and libraries. It also starts other class loaders (for containers, etc.).
+
+
+
+### Application Container
+Web server that the application runs under. IE Tomcat, Websphere, ect.
+
+
+
+### Archive Files
+JAR files - collection of class files.
+WAR files - collection of class, JSP, XML files.
+EAR files - collection of JAR, WAR, and EJBs.
+
+
+
+### Auto Boxing
+The automatic conversion of primitive types into their representative classes and back.
+
+Example: Converting integers into Integer object instances and back.
+@
+@ autoboxing, auto-boxing
+
+
+
+### Auto Closeable
+Auto Closeable (interface) allows classes to be auto closed in a try-with-resource block. The class must implement close().
+
+
+
+### Block
+A section of code that serializes access. Code blocks when it is running, preventing any other code (thread) from accessing the code.
+
+
+
+### Class Initializer
+A static anonymous method that is called when the class is loaded. Allows the class to preload class level data.
+
+
+
+### Class Internal Representation
+The internal representation contains…
+- Basic fields
+- Class fields (including byte codes)
+- Class name (pointer to string)
+- Constant pool information (data read from the class file)
+- Object arrays and type arrays associated with a class
+- internal objects created by the JVM (example: java/lang/Object or java/lang/exception)
+- Compiler optimization information (JITs)
+
+
+
+### Class Loader
+A special class that loads class files from JAR files. Each application running on an application server has it's own class loader.
+Class loaders - application class loader, container class loader. Class loaders load classes into PermGen.
+
+
+
+### Class Types
+Anonymous Class
+Inner Class / Non-Static Nested Class
+Local Class
+Static Nested Class
+
+
+
+### Class Variable - Shadowing
+Where a non-static nested class has a variable with the same name as the outer class. The inner variable is said to 'shadow' the outer class variable. The inner class sees it's variable by default.
+
+
+
+### Class - Anonymous Class
+Used inside a block of code.
+Used to extend an existing class or implement an interface.
+
+
+
+### Class - Inner Class
+A non-static nested class (can never be static).
+
+See: Non-Static Nested Class.
+
+
+
+### Class - Local Class
+A class defined within a block of code (usually a method).
+It can only be accessed from inside that block / method.
+It has access to all methods and properties of the outer class.
+It has access to all final variables that are in scope in the block/method.
+
+
+
+### Class - Non-Static Nested Class
+Has full access to the members and fields of the parent class. These are never static. Must be created from within the parent instance.
+Also called an inner class.
+@
+@ Inner Classes
+
+
+
+### Class - Static Inner Class
+There is no 'Static Inner Class'.
+See: Static Nested Class
+
+
+
+### Class - Static Nested Class
+A nested class that does not have access the the members of a parent class and does not have a reference to a parent instance.
+A static nested class can only call static methods on the parent class.
+
+Ex:
+	OuterClass.StaticNestedClass
+	OuterClass.StaticNestedClass nestedObject1 = new OuterClass.StaticNestedClass();
+
+
+
+### Class-Data Sharing (CDS)
+Improves startup performance by creating class-data archive once and then reusing so the JVM doesn't recreate it.
+
+
+
+### Closure
+When a function or anonymous class references a variable outside its scope (in the parent method where it is defined). Those variables must be declared final.
+
+
+
+### Collections - Non Thread Safe
+ArrayList
+HashMap
+HashSet
+LinkedList
+
+
+
+### Collections - Thread Safe
+Vector
+ConcurrentHashMap
+Collections.synchronizedSet
+ConcurrentLinkedDeque
+
+
+
+### Context Dependency Injection (CDI)
+Java's dependency injection framework.
+
+
+
+### Compare
+When comparing two values in Java, return 0 if equal, a value greater than 0 if the first is greater than the second, and a value less than 0 if the first is less than the second value.
+
+<c>= <v>x<>.compareTo(<v>y<>)<>
+
+	<b>if<>		<b>return<>
+
+	<v>x<> = <v>y<>	<c>0<>							<#>Return <c>0<><>
+	<v>x<> \< <v>y<>	negative value					<#>e.g. <c>-1<><>
+	<v>x<> > <v>y<>	positive value					<#>e.g. <c>1<><>
+@
+@ CompareTo
+
+
+
+### Data Transfer Object (DTO)
+Is an object used to transfer data between different layers.
+
+It should contain no methods other than setters and getters and should not alter its internal contents.
+
+
+
+### Decompiler - Standalone
+JD (Java Decompiler)
+<l>http://java-decompiler.github.io/<>
+
+
+
+### Decompiler - Eclipse IDE
+Enhanced Class Decompiler (ECD):
+<l>https://marketplace.eclipse.org/content/enhanced-class-decompiler<>
+
+
+
+### Doc Comment
+Used to generate documentation from the code. Classes and methods can all have doc comments.
+
+
+
+### Double Colon Operator
+Shorthand for a lambda that calls a named method.
+
+Operator: <c>::<>
+
+
+
+### EAR File (Enterprise Archive File)
+A collection of JAR, WAR, and EJBs.
+
+
+
+### Ellipses
+The '...' that defines a varargs parameter.
+
+See Also: varargs
+
+
+
+### Enterprise JavaBeans (EJB)
+EJB 2.1 solves RPC, ORM, Remote Transaction Management. This is legacy.
+EJB 3.0 solves RPC, ORM (through JPA), Remote Transaction Management, Inversion-Of-Control and is much simpler than EJB 2.1.
+
+
+
+### Environment Variable - JAVA_HOME
+The default java home variable. Points to the root directory (not the bin directory). Used by Tomcat, other programs to locate the JDK directory.
+
+
+
+### Epoch Time
+The time in milliseconds sinse January 1st, 1970 00:00:00 GMT.
+
+
+
+#### Exceptions - Checked Exception
+Identifes exceptions that the program should generally handle.
+
+Checked must be declared in method signatures to be thrown.
+(<c>public <v>methodName<>() throws <v>ExceptionName<><>)
+
+Note:
+Prefer Unchecked exceptions.
+Checked exceptions have fallen out of favor due to the large amount of boiler plate required and difficulties coding for unknown future exceptions in interfaces and base classes.
+
+
+
+#### Exceptions - Unchecked Exception
+Identify exceptions that should not be handled by the program.
+
+Does not need to be declared.
+Inherits from <c>Exception<>.
+
+
+Purpose:
+These days, this is the preferred method for handling all exceptions.
+
+
+
+### Executor
+@
+@ Missing
+
+
+
+### Executor Service
+A library wrapped around threads. It typically manages a poll of threads and allows tasks to be run asynchronously. The service will run indefinitely until .shutdown() or .shutdownNow() is called explicitly.
+
+
+
+### Field
+A class level variable.
+Also called: Property
+
+
+
+### Functional Interface
+An interface with only one method.
+
+
+
+### Future
+Futures are about making asynchronous code retain most of the lost properties of synchronous code such as flat indentation and one exception channel.
+Future - Returned to the caller. A read only container for results that don't exist yet.
+- future1.get() blocks until the result is returned.
+CompatibleFuture: Used / returned by the implementor.
+- compatibleFuture1.complete (result) returns the value retrieved by future1.get().
+- Old Name: Promise.
+
+
+
+### Garbage Collector
+A job that runs periodically to remove unused objects.
+
+It runs when the Heap Size fills up to a certain spot. It runs on it's own thread. The garbage collector can not be forced to run. Objects are garbage collected when they become "unreacheable" from the program (they may still refer to other objects and some unreachable objects may have circular references to each other). The garbage collector also moves objects from New Generation Memory to Old Generation Memory in the Heap.
+
+
+
+### Generics - Bounded Wildcard
+...
+
+
+
+### Generics - Generic Method
+...
+
+
+
+### Genetics - Generic Type
+...
+
+
+
+#### Gorilla
+Here is a gorilla  🦍
+
+
+
+### GUID
+128 bits / 16 Bytes
+Unique Identifier
+
+
+
+### Interface - Default Method
+A method defined in the interface so the class doesn't have to. Classes created before the method was defined would break. The default method gives a way to create that method and allow older classes to continue working.
+
+May cause a diamond problem (2 + interfaces with the same default method) which must be solved by overriding the method in the class and that then picking the appropriate interface (eg interface2.super.methodName()).
+
+
+
+### Interface - Static Method
+Similar to a class static method. A static method defined on an interface and called directly from the interface. Invoked by calling Interface1.staticMethodName().
+
+
+
+### Introspection
+This is the ability for dynamically discovering a class's structure, methods and properties at runtime. This is done in Java using the Reflection API.
+
+See also: Reflection.
+
+
+
+### Java Archive File (JAR File)
+A collection of class files.
+
+
+
+### Java Cryptography Extension (JCE)
+Java framework and implementation for encryption, key generation, key agreement and message authentication code algorithms (Wikipedia).
+
+
+
+### Java Enterprise Edition (JEE)
+This is Java's enterprise computing platform.
+
+It provides APIs and environments for running enterprise software such as networks, web services. etc.
+General APIs: Faces, Servlets, Injection Annotations, Context Annotations, EJB, Validation Annotations, Persistence (JPA), Transactions (JTA), Messaging (JMS)
+
+
+
+### Java Naming and Directory Interface (JNDI)
+A Java API for directory services. It allows the discovery and lookup of objects and data by name. It can be used to lookup objects on a nework.
+
+
+
+### Java Management Extension (JMX)
+Java's mechanism for monitoring and managing java resources.
+
+See Also: JMX Tools
+
+
+
+### Java Persistence API (JPA)
+Javas ORM (Object Relation Mapping) API. It requires an underling system to work but creates a standard way to read and write data to a database.
+
+
+
+### JEE Application Container
+An application container (web server) that implemest all JEE functions.
+
+
+
+### JMOD File
+It is a variant of the jar file. It contains class files, metadata, and resources. It may also contain OS native code.
+
+It is used by jlink to compile code but can't be used to run applications. JMOD is transportable.
+
+
+
+### JMX Tools
+Here are some JXM / memory profiling tools:
+
+JVisualVM	- Java's tool, heap/perm viewer
+jstatd		- Remote Heap/perm Tool (use with VisualVM)
+MAT		- Eclipse's Memory Analyzer
+@
+@ Memory profiler, profiling
+
+
+
+### Lambda Expression
+A block of code with parameters. Use it to process data or make a calculation later on. Has access to final variables in the enclosed scope. Can be used to create concrete classes of single method interfaces.
+
+
+
+### Lambda Function
+An interface or class that can be used as a lambda. That is a class or interface with only one method.
+
+
+
+### Memory - Java 1 to Java 7
+
+Heap		Object Instances, Data Structures
+			New Generation (New Objects)
+			Old Generation (Long Living Objects)
+			Perm Gen. (Classes)
+
+Stack		Local variables, method variables, stored by thread.
+
+
+
+### Memory - Java 8 Onwards
+
+Heap		Object Instances, Data Structures
+			New Generation (New Objects)
+			Old Generation (Long Living Objects)
+
+Metaspace	Classes
+
+Stack		Local variables, method variables, stored by thread.
+
+
+
+### Memory - Heap Memory
+Where java object instances and data structures are stored.
+
+Instances have references back to the class implementation in Perm Gen. The heap is divided into 3 regions: New Generation, Old/Tenured Generation, Perm Space.
+
+
+
+### Memory - Metaspace
+Stores class metadata (representations).
+
+Allocated out of native memory. Memory is limited by available native memory (no 64MB PermGen like limit).
+
+Replaces PermGen in Java 8+.
+
+
+
+### Memory - New Generation Memory
+A region in the Heap memory where newly created objects are stored.
+
+Many objects are created and die here. If they remain alive, they move from here to Old or Tenured Generation by the Garbage Collector.
+
+
+
+### Memory - Old Generation Memory
+A region in the Heap memory where long living objects are moved to and stored. Long living objects are moved from New Generation memory to here by the Garbage Collector.
+
+
+
+### Memory - PermGen (Permanent Generation)
+Permanent Generation. The memory that stores the JVM’s implementation/internal representation of loaded classes.
+
+Class loaders store the class implementation here. The memory size is a fixed 64 MB by default.
+
+See Also: Class Internal Representation.
+
+
+
+### Memory - Stack Memory
+Stores local variables, method variables. Stored by thread. Everything else resides in the heap.
+
+
+
+### Method
+A collection of statements that perform an operation.
+
+
+
+### Module
+A self-contained group of related code with a name. It encapsulates the details, presents a well defined interface and explicitly declares dependencies.
+
+Introduced in Java 9
+
+See Also: JMOD File
+
+
+
+### Module Resolution
+?
+
+
+
+### Object Identity Operator (==)
+Compares the pointer address for two objects to see if they are the same address.
+No values are compared.
+
+vs Value Identity Operator
+@
+@ Equals
+
+
+
+### Primitive
+Primitives are the Java data types that are not stored as an object.
+
+Types: boolean, byte, char, double, float, int, long, short
+@
+@ Primitives
+
+
+
+### Promise
+Renamed: CompletableFuture
+See: Future
+
+
+
+### Reflection
+This is the mechanism for dynamically discovering and using an object's structures, methods and properties at runtime.
+
+
+
+### Statement
+A single java command terminated with a semicolon.
+
+
+
+### String Pool
+Java's string interning system that stores immutable strings in a space saving way.
+
+
+
+### Type Erasure
+This is erasure of types by Java at runtime. This happens in the use of Generics. With Generics Java checks at compile time but casts run time. There is to type information in the compiled code.
+
+
+
+### Value Identity Operator (==)
+Compares two primitive values to see if they are equal to each other.
+
+vs Object Identity Operator
+@
+@ Equals
+
+
+
+### Varargs
+A mechanism to pass in an arbitrary number of arguments to a function.
+Under the hood, the values are placed in an array and those are passed to the function.
+
+Defined with ellipses '<c>...<>'.
+
+
+
+### Virtual Extension Method
+A method who's implementation is defined in an interface. New feature as of Java 8.
+
+
+
+### Volatile
+Declares a variable will be changed by multiple threads and the access is synchronized (primitive types only).
+The value will never be cached thread-locally.
+All reads and writes go to 'main memory'.
+Access to the variable acts like an encapsulated synchronized block.
+
+
+
+### Web Archive File (WAR File)
+A collection of class, JSP, XML files.
+
+
+
+^					^								^
