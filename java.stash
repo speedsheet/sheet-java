@@ -4074,6 +4074,24 @@ catch (IOException e) {
 
 
 
+### Text File - Read Line By Line
+
+<cb>try (Stream<String> <v>stream<> = Files.lines(Paths.get(<v>fileName<>))) {
+    stream.forEach(<v>line<> -> <v>...<>);
+}<>
+
+Imports:
+
+<cb>import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Stream;<>
+
+
+Reads the file line by line and streams it to a function.
+@
+@ file.lines(), .lines()
+
+
 
 ### Text File - Read All Lines
 
