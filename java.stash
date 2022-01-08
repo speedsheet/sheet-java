@@ -499,6 +499,70 @@ Bitwise OR				<c>|<>			<#>Returns 1 if eithe bit is 1.<>
 
 
 
+# Variables
+
+
+## Variable - Create
+@
+@ new, assign
+
+
+### Variable - Create 
+
+<cb><v>Type<> <v>name<> = <v>value<>;<>
+
+Creates a variable of type <c><v>Type<><>.
+
+
+Example:
+
+Create An Integer:
+
+<cb>int <v>int_1<> = 42;<>
+
+
+
+### Variable - Create Immutable Value With Type Inferencing
+
+<cb>val <v>name<> = <v>value<>;<>
+
+Creates an immutable variable where the type is infered from the value.
+
+
+Example:
+
+Create An Integer:
+
+<cb>val <v>int_1<> = 42;<>
+@
+@ val
+
+
+
+### Variable - Create Mutable Variable With Type Inferencing
+
+<cb>var <v>name<> = <v>value<>;<>
+
+Creates a mutable variable where the type is infered from the value.
+
+
+Example:
+
+Create An Integer:
+
+<cb>var <v>int_1<> = 42;<>
+@
+@ val
+
+
+
+### Variable - val vs var
+
+val - Creates an immutable variable.
+var - Creates a mutable variable.
+
+
+
 # Data Types
 @
 @ data-only, data-type-only, data-types-only
