@@ -2462,7 +2462,7 @@ Class:			<c>java.util.LinkedList
 
 ##### LinkedList - Replace Element
 
-<c><v>list1<>.set(<v>list1<>.indexOf (<v>currentItem<>), <v>replacementItem<>);<>
+<cb><v>list1<>.set(<v>list1<>.indexOf (<v>currentItem<>), <v>replacementItem<>);<>
 
 
 
@@ -2507,13 +2507,13 @@ Immutable List		None							<#>Consider Using Google Guava<>
 
 ##### List - Get
 
-<c>= <v>list1<>.get(<v>index<>);<>
+<cb>= <v>list1<>.get(<v>index<>);<>
 
 
 
 ##### List - Get First
 
-<c>= <v>list1<>.get(0);<>
+<cb>= <v>list1<>.get(0);<>
 @
 @ Beginning
 
@@ -2521,7 +2521,7 @@ Immutable List		None							<#>Consider Using Google Guava<>
 
 ##### List - Get Last
 
-<c>= <v>list1<>.get(<v>list1<>.size() - 1);<>
+<cb>= <v>list1<>.get(<v>list1<>.size() - 1);<>
 @
 @ End
 
@@ -2529,7 +2529,7 @@ Immutable List		None							<#>Consider Using Google Guava<>
 
 ##### List - Iterate
 
-<c>for (<v>Type<> <v>item<> : <v>list1<>) {
+<cb>for (<v>Type<> <v>item<> : <v>list1<>) {
 	<v>...<>
 }<>
 
@@ -2537,7 +2537,7 @@ Immutable List		None							<#>Consider Using Google Guava<>
 
 ##### List - Add
 
-<c><v>list1<>.add(<v>value<>);<>
+<cb><v>list1<>.add(<v>value<>);<>
 
 
 Adds to the end of the list.
@@ -2548,9 +2548,9 @@ Adds to the end of the list.
 
 ##### List - Add All
 
-<c><v>list1<>.addAll(<v>list2<>);<>
+<cb><v>list1<>.addAll(<v>list2<>);<>
 
-<c><v>list1<>.addAll(<v>collection1<>);<>
+<cb><v>list1<>.addAll(<v>collection1<>);<>
 @
 @ Append, addAll, join, Collection, Merge
 
@@ -2558,7 +2558,7 @@ Adds to the end of the list.
 
 ##### List - Duplicate
 
-<c>List\<<v>Type<>> <v>list2<> = new ArrayList\<>(<v>list1<>);<>
+<cb>List\<<v>Type<>> <v>list2<> = new ArrayList\<>(<v>list1<>);<>
 
 
 Performs a shallow copy.
@@ -2570,7 +2570,7 @@ Preserves list order.
 
 ##### List - Insert
 
-<c><v>list1<>.add(<v>index<>, <v>value<>);<>
+<cb><v>list1<>.add(<v>index<>, <v>value<>);<>
 @
 @ Add
 
@@ -2578,7 +2578,7 @@ Preserves list order.
 
 ##### List - Insert At The Beginning
 
-<c><v>list1<>.add(0, <v>value<>);<>
+<cb><v>list1<>.add(0, <v>value<>);<>
 @
 @ Add First
 
@@ -2586,13 +2586,13 @@ Preserves list order.
 
 ##### List - Is Empty?
 
-<c>= <v>list1<>.isEmpty()<>
+<cb>= <v>list1<>.isEmpty()<>
 
 
 
 ##### List - Remove
 
-<c><v>list1<>.remove(<v>index<>);<>
+<cb><v>list1<>.remove(<v>index<>);<>
 @
 @ Delete
 
@@ -2600,7 +2600,7 @@ Preserves list order.
 
 ##### List - Remove All
 
-<c><v>list1<>.removeAll();<>
+<cb><v>list1<>.removeAll();<>
 @
 @ Delete, Clear, removeAll
 
@@ -2608,7 +2608,7 @@ Preserves list order.
 
 ##### List - Set
 
-<c><v>list1<>.set(<v>index<>, <v>value<>);<>
+<cb><v>list1<>.set(<v>index<>, <v>value<>);<>
 
 
 Replace value at the location <v>index<> with <v>value<>.
@@ -2619,7 +2619,7 @@ Replace value at the location <v>index<> with <v>value<>.
 
 ##### List - Size
 
-<c>= <v>list1<>.size()<>
+<cb>= <v>list1<>.size()<>
 @
 @ Count, Length
 
@@ -2627,19 +2627,35 @@ Replace value at the location <v>index<> with <v>value<>.
 
 ##### List - Sort
 
-<c>Collections.sort (<v>list1<>);<>
-<c>Collections.sort (<v>list1<>, <v>comparator<>);<>
+<cb>Collections.sort(<v>list1<>);
+
+Collections.sort(<v>list1<>, <v>comparator<>);<>
 
 Sorts in place.
+@
+@ Collections.sort()
+
+
+
+##### List - Sort - Ignore Case
+
+<cb>Collections.sort(<v>list1<>, String.CASE_INSENSITIVE_ORDER);<>
+
+Sorts in place but ignores case.
+@
+@ Collections.sort()
 
 
 
 ##### List - Sort, Reversed
 
-<c>Collections.reverse (<v>list1<>);<>
-<c>Collections.reverse (<v>list1<>, <v>comparator<>);<>
+<cb>Collections.reverse (<v>list1<>);
+
+Collections.reverse(<v>list1<>, <v>comparator<>);<>
 
 Sorts in place.
+@
+@ Collections.reverse()
 
 
 
@@ -2991,14 +3007,15 @@ No duplicates allowed.
 One null allowed.
 @
 @ Create, Define, Instantiate, New
+@ set-only, sets-only
 
 
 
 #### Set Types
 
-<c>HashSet<>			Standard Set, Not Thread Safe
+<card><c>HashSet<>			Standard Set, Not Thread Safe
 <c>LinkedHashSet<>	Ordered Set (Insert Order)
-<c>TreeSet<>			Sorted Set (Natural Order)
+<c>TreeSet<>			Sorted Set (Natural Order)<>
 
 Standard			<c>HashSet<>
 Ordered Set		<c>LinkedHashSet<>
@@ -3008,30 +3025,38 @@ Thread Safe		<c>Collections.synchronizedSet<>		<#>Set wrapper. Do not access wra
 Immutable List		None							<#>Consider Using Google Guava<>
 @
 @ Subtypes
+@ set-only, sets-only
 
 
 
 #### Set Operations
 @
 @ Ops
+@ set-only, sets-only
 
 
 
 ##### Set - Contains?
 
-<c>= <v>set1<>.contains(<v>value1<>)<>
+<cb>= <v>set1<>.contains(<v>value1<>)<>
 
 
 
 ##### Set - Contains Collection?
 
-<c>= <v>set1<>.containsAll(<v>collection1<>)<>
+<cb>= <v>set1<>.containsAll(<v>collection1<>)<>
+
+
+
+##### Set - Is Empty?
+
+<cb>= <v>set1<>.isEmpty()<>
 
 
 
 ##### Set - Add
 
-<c><v>set1<>.add(<v>value1<>);<>
+<cb><v>set1<>.add(<v>value1<>);<>
 @
 @ Insert
 
@@ -3039,9 +3064,9 @@ Immutable List		None							<#>Consider Using Google Guava<>
 
 ##### Set - Add All
 
-<c><v>set1<>.addAll(<v>set2<>);<>
+<cb><v>set1<>.addAll(<v>set2<>);<>
 
-<c><v>set1<>.addAll(<v>collection1<>);<>
+<cb><v>set1<>.addAll(<v>collection1<>);<>
 @
 @ addAll, insert, join, collection
 
@@ -3049,7 +3074,7 @@ Immutable List		None							<#>Consider Using Google Guava<>
 
 ##### Set - Duplicate
 
-<c>Set\<<v>Type<>> <v>set2<> = new HashSet\<>(<v>set1<>);<>
+<cb>Set\<<v>Type<>> <v>set2<> = new HashSet\<>(<v>set1<>);<>
 
 
 Performs a shallow copy.
@@ -3060,14 +3085,14 @@ Performs a shallow copy.
 
 ##### Set - Remove
 
-<c><v>set1<>.remove(<v>value1<>);<>
+<cb><v>set1<>.remove(<v>value1<>);<>
 @
 @ delete
 
 
 ##### Set - Remove All
 
-<c><v>set1<>.clear();<>
+<cb><v>set1<>.clear();<>
 @
 @ clear, delete, removeAll
 
@@ -3075,23 +3100,26 @@ Performs a shallow copy.
 
 ##### Set - Size
 
-<c>= <v>set1<>.size()<>
+<cb>= <v>set1<>.size()<>
 @
 @ Count, Length
 
 
 
-##### Set - Is Empty?
+##### Set - Sorted
 
-<c>= <v>set1<>.isEmpty()<>
+<cb>var <v>sort<> = new ArrayList\<>(<v>set1<>);
+Collections.sort(<v>sort<>);<>
+@
+@ Collections.sort()
 
 
 
 ##### Set - Union
 
-<c><v>set1<>.addAll(<v>set2<>);<>
+<cb><v>set1<>.addAll(<v>set2<>);<>
 
-<c><v>set1<>.addAll(<v>collection1<>);<>
+<cb><v>set1<>.addAll(<v>collection1<>);<>
 
 
 Add all elements of <c><v>set1<><> or <c><v>collection1<><> to <c><v>set2<><>.
@@ -3102,9 +3130,9 @@ Add all elements of <c><v>set1<><> or <c><v>collection1<><> to <c><v>set2<><>.
 
 ##### Set - Intersection
 
-<c><v>set1<>.retainAll(<v>set2<>);<>
+<cb><v>set1<>.retainAll(<v>set2<>);<>
 
-<c><v>set1<>.retainAll(<v>collection1<>);<>
+<cb><v>set1<>.retainAll(<v>collection1<>);<>
 
 
 Keeps only those elements of <c><v>set1<><> that are in <c><v>set2<><> or <c><v>collection1<><>.
@@ -4842,6 +4870,18 @@ Support:	2030 September
 
 
 
+# Reference - Download
+
+
+### Download Java - Official Site
+
+<l>https://java.com/en/download/<>
+
+
+
+### Download Java - Open JDK Site
+
+<l>https://openjdk.java.net/<>
 
 
 
