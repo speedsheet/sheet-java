@@ -3673,6 +3673,78 @@ Prefer <c>deque<>.
 
 
 
+# Optional
+
+Type:
+
+<cb>Optional\<<v>T<>><>
+@
+@ optional-only, optional\<>
+
+
+## Optional - Create
+
+
+### Optional - Create With Value
+
+<cb>= Optional.of(<v>value<>)<>
+
+Returns an optional containing a value.
+@
+@ optional.of(), .of()
+
+
+### Optional - Create Empty
+
+<cb>= Optional.empty()<>
+
+Returns an optional with no value.
+@
+@ optional.empty(), .empty()
+
+
+
+## Optional - Properties
+
+
+### Optional - Get Value
+
+<cb>= <v>optional1<>.get()<>
+
+Returns the value contained in the optional.
+
+Will throw an exception if called on an empty optional.
+@
+@ optional.get(), .get()
+
+
+
+### Optional - Is Empty
+
+<cb>= <v>optional1<>.isEmpty()<>
+
+Returns: boolean
+
+Returns true if the optional has no value.
+@
+@ has value, contains value
+@ optional.isempty(), .isempty()
+
+
+
+### Optional - Is Present
+
+<cb>= <v>optional1<>.isPresent()<>
+
+Returns: boolean
+
+Returns true if the optional has a value.
+@
+@ has a value, contains a value
+@ optional.ispresent(), .ispresent()
+
+
+
 # UUID
 
 <cb>UUID <i>uuid1<> = UUID.randomUUID();
@@ -5665,6 +5737,26 @@ Import:
 
 
 
+### Sleep
+
+<cb>Thread.sleep(<v>milliseconds<>);<>
+
+Usage:
+
+<cb>try {
+	Thread.sleep(<v>milliseconds<>);
+}
+catch (InterruptedException as <v>exception<>) {
+	<v>...<>
+}
+
+
+Suspend the current thread for a given number of seconds.
+@
+@ thread.sleep(), .sleep()
+
+
+
 ### Thread - Start
 
 Define:
@@ -5684,6 +5776,34 @@ Start:
 Implement <c>Runnable<>.
 Override <c>run()<>.
 Start with <c>new Thread (<v>...<> .start())<>.
+@
+@ new thread().start, thread.start(), .start(), runnable
+
+
+
+### Thread Class - Start
+
+Define:
+
+<cb>class <v>Class1<> extends Thread {
+
+	public void run() {
+		<v>...<>
+	}
+}<>
+
+Start:
+
+<cb>new <v>Class1<>().start();
+
+<v>instance_1<>.start()<>
+
+
+Extends <c>Thread<>.
+Override <c>run()<>.
+Start with <c><v>instance<>..start()<>.
+@
+@ thread, .start()
 
 		
 
